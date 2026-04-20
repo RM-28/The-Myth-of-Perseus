@@ -1,0 +1,141 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Lora", ui-serif, Georgia, "Times New Roman", serif;
+}
+
+:root {
+  --bg-primary: #1a1f2e;
+  --bg-secondary: #151927;
+  --text-primary: #e8dcc8;
+  --text-muted: #e8dcc8b3;
+  --accent: #c9a84c;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-primary);
+  background-image: radial-gradient(ellipse at 50% -5%, rgba(201, 168, 76, 0.07) 0%, transparent 60%);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Story prose styling */
+.prose-story p {
+  margin-bottom: 1.5em;
+}
+
+.prose-story p:last-child {
+  margin-bottom: 0;
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translate(0, 0); }
+  20%       { transform: translate(12px, -45px); }
+  40%       { transform: translate(-8px, -20px); }
+  60%       { transform: translate(15px, -65px); }
+  80%       { transform: translate(-5px, -35px); }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.08; }
+  50%       { opacity: 0.45; }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -300% center; }
+  100% { background-position: 300% center; }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.3; }
+  50%       { opacity: 0.7; filter: drop-shadow(0 0 5px rgba(201,168,76,0.5)); }
+}
+
+/* Choice button fill-from-left on hover */
+.choice-fill {
+  position: relative;
+  overflow: hidden;
+}
+.choice-fill::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(201,168,76,0.12) 0%, rgba(201,168,76,0.03) 100%);
+  transform: translateX(-101%);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.choice-fill:hover::before {
+  transform: translateX(0);
+}
+
+/* Gold shimmer text */
+.shimmer-title {
+  background: linear-gradient(
+    105deg,
+    #e8dcc8 0%,
+    #e8dcc8 30%,
+    #f5e08a 50%,
+    #e8dcc8 70%,
+    #e8dcc8 100%
+  );
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes expandLine {
+  from {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+  to {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Selection color */
+::selection {
+  background-color: #c9a84c40;
+  color: #e8dcc8;
+}
