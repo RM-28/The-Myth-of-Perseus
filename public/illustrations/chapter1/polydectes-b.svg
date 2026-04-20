@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Polydectes — Pose B: right arm extended, pointing imperiously at Perseus.
+     Mouth slightly open issuing his demand. Identical to Pose A except the
+     near arm (left) is now extended forward pointing leftward. -->
+<svg viewBox="0 0 700 260" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <linearGradient id="kskin" x1="0.8" y1="0" x2="0.2" y2="1">
+    <stop offset="0%" stop-color="#c8886a"/>
+    <stop offset="50%" stop-color="#a86840"/>
+    <stop offset="100%" stop-color="#6e3e18"/>
+  </linearGradient>
+  <linearGradient id="kskinSh" x1="1" y1="0" x2="0" y2="0">
+    <stop offset="0%" stop-color="#8a5028"/>
+    <stop offset="100%" stop-color="#5a2c0a"/>
+  </linearGradient>
+  <linearGradient id="robe" x1="0.8" y1="0" x2="0.2" y2="1">
+    <stop offset="0%" stop-color="#7a1818"/>
+    <stop offset="50%" stop-color="#4e0e0e"/>
+    <stop offset="100%" stop-color="#280808"/>
+  </linearGradient>
+  <linearGradient id="throne" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#2a1a3a"/>
+    <stop offset="100%" stop-color="#100812"/>
+  </linearGradient>
+  <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#e0b830"/>
+    <stop offset="55%" stop-color="#c09010"/>
+    <stop offset="100%" stop-color="#906808"/>
+  </linearGradient>
+  <linearGradient id="beard" x1="0" y1="0" x2="0.3" y2="1">
+    <stop offset="0%" stop-color="#6a5040"/>
+    <stop offset="50%" stop-color="#4a3028"/>
+    <stop offset="100%" stop-color="#2a1810"/>
+  </linearGradient>
+  <linearGradient id="cushion" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#6a2870"/>
+    <stop offset="100%" stop-color="#3a1040"/>
+  </linearGradient>
+</defs>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- THRONE BACK -->
+<rect x="614" y="20" width="36" height="210" rx="4" fill="url(#throne)" stroke="#c8a030" stroke-width="1.2"/>
+<rect x="618" y="28" width="28" height="40" rx="2" fill="none" stroke="#c8a030" stroke-width="0.8" opacity="0.7"/>
+<rect x="618" y="76" width="28" height="40" rx="2" fill="none" stroke="#c8a030" stroke-width="0.8" opacity="0.7"/>
+<rect x="618" y="124" width="28" height="40" rx="2" fill="none" stroke="#c8a030" stroke-width="0.8" opacity="0.7"/>
+<!-- Throne seat -->
+<path d="M 555,168 L 650,168 L 650,188 L 555,188 Z" fill="url(#throne)" stroke="#c8a030" stroke-width="1.0"/>
+<path d="M 558,170 L 648,170 L 648,186 L 558,186 Z" fill="url(#cushion)" stroke="#5a2068" stroke-width="0.8"/>
+<!-- Armrests -->
+<path d="M 605,145 L 650,145 L 650,158 L 605,158 Z" fill="url(#throne)" stroke="#c8a030" stroke-width="0.9"/>
+<path d="M 555,145 L 590,145 L 590,158 L 555,158 Z" fill="url(#throne)" stroke="#c8a030" stroke-width="0.9"/>
+<!-- Throne legs -->
+<rect x="558" y="188" width="12" height="64" rx="3" fill="url(#throne)" stroke="#c8a030" stroke-width="0.9"/>
+<rect x="636" y="188" width="12" height="64" rx="3" fill="url(#throne)" stroke="#c8a030" stroke-width="0.9"/>
+<ellipse cx="564" cy="252" rx="8" ry="4" fill="url(#gold)"/>
+<ellipse cx="642" cy="252" rx="8" ry="4" fill="url(#gold)"/>
+
+<!-- BACK HAIR shadow -->
+<path d="M 588,22 C 593,21 598,22 602,24 C 606,28 608,34 608,42
+  C 608,50 606,58 604,64 C 603,68 602,70 600,70
+  C 598,70 598,67 599,62 C 601,54 602,45 601,38
+  C 600,32 597,27 592,25 Z"
+  fill="url(#beard)" opacity="0.6"/>
+
+<!-- ROBE main body -->
+<path d="M 575,76 C 565,78 555,84 550,92 C 546,100 546,112 548,124
+  C 550,136 556,148 562,155 L 558,168 L 648,168 L 644,155
+  C 648,148 652,136 654,124 C 656,112 655,100 650,92
+  C 645,84 636,78 625,76 Z"
+  fill="url(#robe)" stroke="#5e1010" stroke-width="1.4"/>
+<path d="M 556,92 C 560,100 562,114 562,128 C 562,142 560,154 558,162"
+  fill="none" stroke="#9a2020" stroke-width="1.2" opacity="0.55"/>
+<path d="M 570,80 C 566,90 564,102 565,116 C 566,128 569,140 573,150"
+  fill="none" stroke="#9a2020" stroke-width="1.0" opacity="0.45"/>
+<path d="M 555,164 L 645,164" stroke="#c8a030" stroke-width="2.0" fill="none"/>
+<path d="M 558,144 C 564,141 572,140 582,140 L 592,140 C 602,140 610,141 618,143 L 618,150 C 610,148 602,147 592,147 L 582,147 C 572,147 564,148 558,150 Z"
+  fill="url(#gold)" stroke="#906808" stroke-width="0.8"/>
+
+<!-- NEAR ARM (left) — EXTENDED FORWARD pointing at Perseus -->
+<path d="M 562,82 C 552,82 540,80 528,76 C 518,72 510,67 504,62"
+  stroke="#5e3010" stroke-width="21" stroke-linecap="round" fill="none"/>
+<path d="M 562,82 C 552,82 540,80 528,76 C 518,72 510,67 504,62"
+  stroke="url(#kskin)" stroke-width="19" stroke-linecap="round" fill="none"/>
+<!-- Forearm continuing forward -->
+<path d="M 504,62 C 496,58 490,56 486,56"
+  stroke="#5e3010" stroke-width="18" stroke-linecap="round" fill="none"/>
+<path d="M 504,62 C 496,58 490,56 486,56"
+  stroke="url(#kskin)" stroke-width="16" stroke-linecap="round" fill="none"/>
+<!-- Hand knuckle area -->
+<ellipse cx="486" cy="56" rx="9" ry="7" fill="url(#kskin)" stroke="#5e3010" stroke-width="1.0" transform="rotate(15,486,56)"/>
+<!-- Three curled fingers (upward curve) -->
+<path d="M 482,52 C 479,49 479,52 481,55 C 482,57 484,58 486,57" stroke="url(#kskin)" stroke-width="7.5" stroke-linecap="round" fill="none"/>
+<path d="M 484,50 C 481,47 481,50 483,53 C 484,55 486,56 488,55" stroke="url(#kskin)" stroke-width="7" stroke-linecap="round" fill="none"/>
+<path d="M 487,50 C 485,47 485,50 487,52 C 488,54 490,55 492,54" stroke="url(#kskin)" stroke-width="6.5" stroke-linecap="round" fill="none"/>
+<!-- INDEX FINGER extended leftward pointing -->
+<path d="M 483,59 C 477,60 472,60 468,59 C 465,58 463,57 463,55
+  C 463,53 465,52 468,52 C 472,52 477,53 482,55 Z"
+  fill="url(#kskin)" stroke="#5e3010" stroke-width="1.0"/>
+<!-- Arm robe sleeve pushed back (forearm slightly bare) -->
+<path d="M 520,74 C 516,74 512,72 510,70" stroke="#5e1010" stroke-width="4" stroke-linecap="round" fill="none"/>
+
+<!-- FAR ARM (right, resting) -->
+<path d="M 622,82 C 628,90 632,100 633,112 C 634,122 632,132 629,140
+  C 627,145 625,148 623,148 L 621,156 C 621,160 620,163 618,162
+  C 616,161 615,158 615,154 L 617,147 C 615,144 613,140 612,134
+  C 611,124 612,112 614,102 C 616,94 618,87 621,82 Z"
+  fill="url(#kskinSh)" stroke="#4a2808" stroke-width="1.0"/>
+<path d="M 620,155 C 621,158 621,162 620,165 C 619,168 617,169 615,168
+  C 613,167 612,164 612,161 C 612,158 613,155 615,154 Z"
+  fill="url(#kskinSh)" stroke="#4a2808" stroke-width="0.9"/>
+
+<!-- NECK -->
+<path d="M 576,62 C 574,64 573,67 574,71 L 575,77 C 577,79 581,80 585,80
+  C 589,80 593,79 595,77 L 596,71 C 597,67 596,64 594,62
+  C 591,60 587,59 583,59 C 580,59 577,60 576,62 Z"
+  fill="url(#kskin)" stroke="#5e3010" stroke-width="1.2"/>
+
+<!-- HEAD -->
+<path d="M 586,22 C 580,21 575,21 570,23 C 566,26 562,31 562,37
+  C 562,43 563,49 566,53 C 569,57 573,59 577,60
+  C 581,61 586,60 590,58 C 594,55 598,50 599,44
+  C 600,38 598,31 594,27 C 591,23 588,22 586,22 Z"
+  fill="url(#kskin)" stroke="#5e3010" stroke-width="1.6"/>
+
+<!-- CROWN -->
+<path d="M 561,27 C 564,24 569,22 576,21 L 586,20 C 594,20 600,22 603,25
+  L 604,30 C 600,28 594,27 586,27 L 576,27 C 568,27 563,29 560,31 Z"
+  fill="url(#gold)" stroke="#906808" stroke-width="1.0"/>
+<path d="M 563,28 L 560,18 L 567,26 Z" fill="url(#gold)" stroke="#906808" stroke-width="0.7"/>
+<path d="M 572,27 L 571,14 L 578,25 Z" fill="url(#gold)" stroke="#906808" stroke-width="0.7"/>
+<path d="M 581,26 L 582,11 L 589,24 Z" fill="url(#gold)" stroke="#906808" stroke-width="0.7"/>
+<path d="M 590,26 L 593,14 L 598,25 Z" fill="url(#gold)" stroke="#906808" stroke-width="0.7"/>
+<path d="M 599,27 L 603,18 L 606,27 Z" fill="url(#gold)" stroke="#906808" stroke-width="0.7"/>
+<ellipse cx="582" cy="24" rx="4" ry="3" fill="#c02020" stroke="#8a1010" stroke-width="0.8"/>
+<ellipse cx="582" cy="24" rx="2" ry="1.5" fill="#f05050" opacity="0.7"/>
+
+<!-- HAIR -->
+<path d="M 561,28 C 558,32 557,38 558,45 C 559,50 562,55 565,58"
+  fill="none" stroke="#3a2818" stroke-width="5" stroke-linecap="round"/>
+<path d="M 560,30 C 557,36 556,44 558,52" fill="none" stroke="#2a1c10" stroke-width="3.5" stroke-linecap="round"/>
+
+<!-- EAR -->
+<path d="M 562,33 C 559,33 557,36 557,40 C 557,44 559,47 562,47
+  C 563,47 564,46 564,44 C 564,41 563,37 562,33 Z"
+  fill="url(#kskin)" stroke="#5e3010" stroke-width="0.9"/>
+<path d="M 562,36 C 561,38 561,42 562,45" fill="none" stroke="#7a4018" stroke-width="0.7"/>
+
+<!-- ──────── FACE — IMPERIOUS / DEMANDING ──────── -->
+<!-- Heavy brows -->
+<path d="M 564,28 C 568,26 573,25 576,27 C 577,28 577,30 575,31 C 572,30 568,30 565,31 Z"
+  fill="#1c0c04"/>
+<path d="M 576,27 C 579,26 583,26 586,27 C 587,29 586,30 585,30 C 582,30 578,30 576,30 Z"
+  fill="#1c0c04"/>
+<path d="M 561,34 C 559,36 558,38 558,40" stroke="#7a4018" stroke-width="0.8" fill="none" opacity="0.6"/>
+
+<!-- Eye near (left) -->
+<ellipse cx="570" cy="35" rx="7" ry="4" fill="#7a4028" opacity="0.4"/>
+<path d="M 564,34 C 567,31 573,31 576,34 C 573,37 567,37 564,34 Z" fill="#e4d4b8"/>
+<circle cx="570" cy="34" r="3.2" fill="#1c0c06"/>
+<circle cx="570.5" cy="34" r="1.8" fill="#060402"/>
+<circle cx="572" cy="33" r="0.9" fill="#fff0d8" opacity="0.8"/>
+<path d="M 564,34 C 567,31 573,31 576,34" fill="none" stroke="#120804" stroke-width="1.6"/>
+<path d="M 564,34 C 567,37 573,37 576,34" fill="none" stroke="#120804" stroke-width="0.7"/>
+<path d="M 564,36 C 567,38 572,38 576,36" stroke="#8a4020" stroke-width="0.6" fill="none" opacity="0.5"/>
+<!-- Eye far -->
+<ellipse cx="582" cy="35" rx="5" ry="3.5" fill="#7a4028" opacity="0.3"/>
+<path d="M 577,34 C 579,32 583,32 586,34 C 583,36 579,36 577,34 Z" fill="#d8c4a0"/>
+<circle cx="581.5" cy="34" r="2.4" fill="#1c0c06"/>
+<path d="M 577,34 C 579,32 583,32 586,34" fill="none" stroke="#120804" stroke-width="1.3"/>
+
+<!-- NOSE — aquiline, projecting left -->
+<path d="M 580,30 C 580,33 579,36 578,39 C 576,42 572,44 569,44"
+  fill="none" stroke="#8a4828" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M 571,43 C 569,42 567,41 566,39"
+  fill="none" stroke="#8a4828" stroke-width="1.7" stroke-linecap="round"/>
+<path d="M 571,44 C 572,46 573,47 572,48"
+  fill="none" stroke="#7a3818" stroke-width="1.2" stroke-linecap="round"/>
+
+<!-- BEARD -->
+<path d="M 565,53 C 561,56 558,62 558,70 C 558,80 560,90 563,98
+  C 566,108 570,116 574,122 C 577,128 580,130 582,128
+  C 584,126 585,120 584,112 C 583,102 581,92 580,82
+  C 579,74 580,67 582,62 C 579,57 573,54 568,53 Z"
+  fill="url(#beard)" stroke="#3a2010" stroke-width="1.0"/>
+<path d="M 567,56 C 564,62 562,70 562,80 C 562,90 565,100 568,108"
+  fill="none" stroke="#9a8878" stroke-width="2.0" opacity="0.5"/>
+<path d="M 570,55 C 568,63 567,72 567,82 C 567,92 569,102 572,110"
+  fill="none" stroke="#8a7868" stroke-width="1.5" opacity="0.4"/>
+<path d="M 574,54 C 573,62 573,72 574,82 C 575,92 577,102 578,110"
+  fill="none" stroke="#7a6858" stroke-width="1.5" opacity="0.4"/>
+<path d="M 565,58 C 563,65 562,74 563,84" stroke="#d0c0a8" stroke-width="1.2" fill="none" opacity="0.35"/>
+<path d="M 575,124 C 574,128 573,132 574,136 C 575,138 578,139 580,137
+  C 582,135 582,131 581,127"
+  fill="none" stroke="#4a3020" stroke-width="2.5" stroke-linecap="round"/>
+
+<!-- MUSTACHE -->
+<path d="M 562,52 C 565,50 569,49 572,50 C 575,52 577,54 578,56
+  C 575,56 569,55 565,54 Z"
+  fill="#4a3020" stroke="#2a1810" stroke-width="0.7"/>
+
+<!-- MOUTH — OPEN, issuing the demand -->
+<!-- Upper lip -->
+<path d="M 563,51 C 566,49 570,49 573,51"
+  fill="none" stroke="#8a3820" stroke-width="2.0" stroke-linecap="round"/>
+<!-- Open gap (dark interior) -->
+<path d="M 563,52 C 566,55 570,55 573,52 L 572,56 C 569,57 566,57 564,56 Z"
+  fill="#1e0808" opacity="0.9"/>
+<!-- Lower lip -->
+<path d="M 564,56 C 566,58 569,58 572,56"
+  fill="none" stroke="#8a3820" stroke-width="1.8" stroke-linecap="round"/>
+
+<!-- Age spots -->
+<circle cx="577" cy="48" r="1.0" fill="#8a5030" opacity="0.4"/>
+<circle cx="590" cy="44" r="0.8" fill="#8a5030" opacity="0.35"/>
+
+<!-- NEAR LEG -->
+<path d="M 555,168 C 552,180 550,194 550,208 C 550,220 552,232 554,240
+  C 555,244 558,246 561,246 C 564,246 566,244 566,241
+  C 566,234 565,222 565,210 C 565,198 567,184 570,172
+  C 565,170 560,169 555,168 Z"
+  fill="url(#robe)" stroke="#5e1010" stroke-width="1.0"/>
+<path d="M 554,240 C 553,244 553,249 555,252 C 557,255 560,256 563,255
+  C 566,254 567,251 566,247 C 565,244 564,241 563,240 Z"
+  fill="url(#kskin)" stroke="#5e3010" stroke-width="0.9"/>
+<path d="M 548,252 C 547,255 549,257 554,258 C 558,259 563,258 565,255
+  C 563,254 560,253 556,253 C 552,253 549,252 548,252 Z"
+  fill="url(#gold)" stroke="#806010" stroke-width="0.8"/>
+
+</svg>
