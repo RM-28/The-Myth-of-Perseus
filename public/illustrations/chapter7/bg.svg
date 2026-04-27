@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Chapter VII — Joppa sea cliff; chained Andromeda, dark churning sea, Cetus below -->
+<svg viewBox="0 0 700 260" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">
+<!-- Dark sky -->
+<rect width="700" height="180" fill="#06080e"/>
+<rect x="0" y="0"   width="700" height="40"  fill="#040608"/>
+<rect x="0" y="40"  width="700" height="80"  fill="#060810"/>
+<rect x="0" y="120" width="700" height="60"  fill="#08090e"/>
+<!-- Few stars -->
+<rect x="80"  y="12" width="2" height="2" fill="#d8d4b8" opacity="0.70"/>
+<rect x="220" y="8"  width="2" height="2" fill="#d8d4b8" opacity="0.65"/>
+<rect x="380" y="16" width="2" height="2" fill="#c9a84c" opacity="0.50"/>
+<rect x="540" y="10" width="2" height="2" fill="#d8d4b8" opacity="0.68"/>
+<rect x="640" y="20" width="2" height="2" fill="#d8d4b8" opacity="0.60"/>
+<rect x="140" y="40" width="1" height="1" fill="#808090" opacity="0.50"/>
+<rect x="460" y="44" width="1" height="1" fill="#808090" opacity="0.48"/>
+<!-- Rocky sea cliff (left side — where Andromeda is chained) -->
+<rect x="0"   y="0"   width="80"  height="260" fill="#141020"/>
+<rect x="0"   y="0"   width="6"   height="260" fill="#1c1828"/>
+<rect x="60"  y="0"   width="8"   height="260" fill="#0e0c18"/>
+<rect x="8"   y="0"   width="20"  height="260" fill="#181428"/>
+<!-- Cliff texture / horizontal strata -->
+<rect x="0"   y="60"  width="80" height="4" fill="#0e0c1a"/>
+<rect x="0"   y="90"  width="80" height="4" fill="#0e0c1a"/>
+<rect x="0"   y="120" width="80" height="4" fill="#0e0c1a"/>
+<rect x="0"   y="150" width="80" height="4" fill="#0e0c1a"/>
+<rect x="0"   y="180" width="80" height="4" fill="#0e0c1a"/>
+<!-- Chains attached to cliff (iron bolts) -->
+<rect x="64"  y="40"  width="8" height="4" fill="#888078"/>
+<rect x="66"  y="40"  width="4" height="12" fill="#8a8278"/>
+<rect x="64"  y="80"  width="8" height="4" fill="#888078"/>
+<rect x="66"  y="80"  width="4" height="12" fill="#8a8278"/>
+<!-- Right far cliff wall -->
+<rect x="640" y="0"   width="60"  height="260" fill="#14101e"/>
+<rect x="692" y="0"   width="8"   height="260" fill="#1c1826"/>
+<rect x="640" y="0"   width="6"   height="260" fill="#100e1a"/>
+<!-- Dark churning sea -->
+<rect x="0"   y="180" width="700" height="80" fill="#040c18"/>
+<rect x="0"   y="180" width="700" height="8"  fill="#061018"/>
+<!-- Wave patterns -->
+<rect x="0"   y="188" width="700" height="4"  fill="#08121e"/>
+<rect x="0"   y="198" width="700" height="4"  fill="#06101c"/>
+<rect x="0"   y="208" width="700" height="4"  fill="#081420"/>
+<rect x="0"   y="218" width="700" height="4"  fill="#06101c"/>
+<rect x="0"   y="228" width="700" height="4"  fill="#08121e"/>
+<rect x="0"   y="238" width="700" height="4"  fill="#06101c"/>
+<rect x="0"   y="248" width="700" height="12" fill="#040c16"/>
+<!-- Wave crests (subtle lighter) -->
+<rect x="88"  y="188" width="60" height="2" fill="#0e1c28" opacity="0.7"/>
+<rect x="210" y="198" width="80" height="2" fill="#0e1c28" opacity="0.6"/>
+<rect x="380" y="208" width="70" height="2" fill="#0e1c28" opacity="0.7"/>
+<rect x="510" y="196" width="90" height="2" fill="#0e1c28" opacity="0.6"/>
+<!-- Cetus (sea monster) partially surfacing on right side -->
+<rect x="430" y="200" width="100" height="60" fill="#0c1826" opacity="0.6"/><!-- body in water -->
+<rect x="460" y="190" width="60"  height="30" fill="#0e1c2c"/><!-- back hump visible -->
+<rect x="476" y="184" width="28"  height="14" fill="#101e2e"/><!-- hump peak -->
+<rect x="484" y="178" width="12"  height="10" fill="#122030"/><!-- tip -->
+<!-- Cetus eye glow -->
+<rect x="434" y="192" width="6" height="6" fill="#601010" opacity="0.6"/>
+<rect x="436" y="194" width="2" height="2" fill="#a01818" opacity="0.8"/>
+<!-- Sea monster dorsal ridges -->
+<rect x="510" y="188" width="6" height="12" fill="#0e1c2c"/>
+<rect x="524" y="192" width="6" height="8"  fill="#0e1c2c"/>
+<rect x="536" y="196" width="4" height="6"  fill="#0e1c2c"/>
+<!-- Foam/spray around monster -->
+<rect x="428" y="198" width="10" height="4" fill="#141e2c" opacity="0.8"/>
+<rect x="546" y="198" width="10" height="4" fill="#141e2c" opacity="0.8"/>
+</svg>

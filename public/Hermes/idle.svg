@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Hermes idle animation — cycles Idle_East_0..3 at 6× scale.
+     viewBox matches the chapter scene (700×260) so it layers directly.
+     Sprite positioned left side, feet at y=222. -->
+<svg viewBox="0 0 700 260" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .hm { image-rendering: pixelated; image-rendering: crisp-edges; }
+
+  @keyframes hm-f0 {
+    0%,24.9% { opacity:1 }
+    25%,100% { opacity:0 }
+  }
+  @keyframes hm-f1 {
+    0%,24.9%  { opacity:0 }
+    25%,49.9% { opacity:1 }
+    50%,100%  { opacity:0 }
+  }
+  @keyframes hm-f2 {
+    0%,49.9%  { opacity:0 }
+    50%,74.9% { opacity:1 }
+    75%,100%  { opacity:0 }
+  }
+  @keyframes hm-f3 {
+    0%,74.9% { opacity:0 }
+    75%,100% { opacity:1 }
+  }
+</style>
+
+<!-- 24px × 32px sprite at 6× = 144×192px
+     x=40  →  left side
+     y=30  →  bottom at 222px                              -->
+<image class="hm"
+  href="/Hermes/Idle_East_0.png"
+  x="40" y="30" width="144" height="192"
+  style="animation: hm-f0 0.65s steps(1,end) infinite;"/>
+<image class="hm"
+  href="/Hermes/Idle_East_1.png"
+  x="40" y="30" width="144" height="192"
+  style="animation: hm-f1 0.65s steps(1,end) infinite; opacity:0;"/>
+<image class="hm"
+  href="/Hermes/Idle_East_2.png"
+  x="40" y="30" width="144" height="192"
+  style="animation: hm-f2 0.65s steps(1,end) infinite; opacity:0;"/>
+<image class="hm"
+  href="/Hermes/Idle_East_3.png"
+  x="40" y="30" width="144" height="192"
+  style="animation: hm-f3 0.65s steps(1,end) infinite; opacity:0;"/>
+
+</svg>

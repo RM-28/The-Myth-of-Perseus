@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Athena idle animation — cycles Idle_West_0..3 at 6× scale.
+     viewBox matches the chapter scene (700×260) so it layers directly.
+     Sprite positioned right side, feet at y=222. -->
+<svg viewBox="0 0 700 260" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .at { image-rendering: pixelated; image-rendering: crisp-edges; }
+
+  @keyframes at-f0 {
+    0%,24.9% { opacity:1 }
+    25%,100% { opacity:0 }
+  }
+  @keyframes at-f1 {
+    0%,24.9%  { opacity:0 }
+    25%,49.9% { opacity:1 }
+    50%,100%  { opacity:0 }
+  }
+  @keyframes at-f2 {
+    0%,49.9%  { opacity:0 }
+    50%,74.9% { opacity:1 }
+    75%,100%  { opacity:0 }
+  }
+  @keyframes at-f3 {
+    0%,74.9% { opacity:0 }
+    75%,100% { opacity:1 }
+  }
+</style>
+
+<!-- 24px × 32px sprite at 6× = 144×192px
+     x=516 →  right side
+     y=30  →  bottom at 222px                              -->
+<image class="at"
+  href="/Athena/Idle_West_0.png"
+  x="516" y="30" width="144" height="192"
+  style="animation: at-f0 0.65s steps(1,end) infinite;"/>
+<image class="at"
+  href="/Athena/Idle_West_1.png"
+  x="516" y="30" width="144" height="192"
+  style="animation: at-f1 0.65s steps(1,end) infinite; opacity:0;"/>
+<image class="at"
+  href="/Athena/Idle_West_2.png"
+  x="516" y="30" width="144" height="192"
+  style="animation: at-f2 0.65s steps(1,end) infinite; opacity:0;"/>
+<image class="at"
+  href="/Athena/Idle_West_3.png"
+  x="516" y="30" width="144" height="192"
+  style="animation: at-f3 0.65s steps(1,end) infinite; opacity:0;"/>
+
+</svg>

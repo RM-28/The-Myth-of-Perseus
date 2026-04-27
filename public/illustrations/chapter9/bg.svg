@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Chapter IX — Open arena / games field; fate completes its circle -->
+<svg viewBox="0 0 700 260" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">
+<!-- Sky — dusk/late day, slightly warmer than other chapters -->
+<rect width="700" height="180" fill="#08080e"/>
+<rect x="0" y="0"   width="700" height="50"  fill="#06060c"/>
+<rect x="0" y="50"  width="700" height="50"  fill="#090810"/>
+<rect x="0" y="100" width="700" height="50"  fill="#0b0910"/>
+<rect x="0" y="150" width="700" height="30"  fill="#0d0b12"/>
+<!-- Constellation of Perseus (upper left — completing the myth cycle) -->
+<rect x="52"  y="22" width="2" height="2" fill="#c9a84c" opacity="0.55"/>
+<rect x="70"  y="36" width="2" height="2" fill="#c9a84c" opacity="0.52"/>
+<rect x="92"  y="20" width="2" height="2" fill="#c9a84c" opacity="0.58"/>
+<rect x="114" y="42" width="2" height="2" fill="#c9a84c" opacity="0.50"/>
+<rect x="82"  y="56" width="2" height="2" fill="#c9a84c" opacity="0.48"/>
+<rect x="102" y="68" width="2" height="2" fill="#c9a84c" opacity="0.45"/>
+<rect x="116" y="50" width="2" height="2" fill="#c9a84c" opacity="0.52"/>
+<rect x="138" y="28" width="2" height="2" fill="#c9a84c" opacity="0.50"/>
+<!-- Constellation lines (dim) -->
+<rect x="54"  y="24" width="16" height="1" fill="#c9a84c" opacity="0.18"/>
+<rect x="70"  y="26" width="2"  height="10" fill="#c9a84c" opacity="0.15"/>
+<rect x="70"  y="36" width="22" height="1" fill="#c9a84c" opacity="0.18"/>
+<rect x="92"  y="22" width="2"  height="14" fill="#c9a84c" opacity="0.15"/>
+<rect x="92"  y="36" width="22" height="1" fill="#c9a84c" opacity="0.15"/>
+<!-- Other stars -->
+<rect x="280" y="14" width="2" height="2" fill="#ddd8c0" opacity="0.70"/>
+<rect x="380" y="8"  width="2" height="2" fill="#ddd8c0" opacity="0.68"/>
+<rect x="480" y="18" width="2" height="2" fill="#ddd8c0" opacity="0.65"/>
+<rect x="600" y="12" width="2" height="2" fill="#ddd8c0" opacity="0.70"/>
+<rect x="660" y="24" width="2" height="2" fill="#ddd8c0" opacity="0.65"/>
+<rect x="200" y="52" width="1" height="1" fill="#888090" opacity="0.50"/>
+<rect x="340" y="60" width="1" height="1" fill="#888090" opacity="0.48"/>
+<rect x="510" y="50" width="1" height="1" fill="#888090" opacity="0.52"/>
+<rect x="630" y="58" width="1" height="1" fill="#888090" opacity="0.45"/>
+<!-- Discus arc (in the air, trailing from Perseus to Acrisius) -->
+<rect x="200" y="96"  width="8"  height="4" fill="#c8d0d8" opacity="0.55"/>
+<rect x="240" y="88"  width="6"  height="4" fill="#c8d0d8" opacity="0.50"/>
+<rect x="280" y="82"  width="6"  height="4" fill="#c8d0d8" opacity="0.45"/>
+<rect x="320" y="80"  width="6"  height="4" fill="#c8d0d8" opacity="0.40"/>
+<rect x="360" y="82"  width="6"  height="4" fill="#c8d0d8" opacity="0.38"/>
+<rect x="400" y="88"  width="6"  height="4" fill="#c8d0d8" opacity="0.35"/>
+<rect x="440" y="96"  width="6"  height="4" fill="#c8d0d8" opacity="0.30"/>
+<rect x="476" y="104" width="8"  height="4" fill="#c8d0d8" opacity="0.25"/>
+<!-- Discus trail -->
+<rect x="204" y="100" width="274" height="1" fill="#c8d0d8" opacity="0.12"/>
+<!-- Arena sand ground -->
+<rect x="0"   y="178" width="700" height="82" fill="#0e0c14"/>
+<rect x="0"   y="178" width="700" height="12" fill="#141020"/>
+<rect x="0"   y="190" width="700" height="12" fill="#110f1a"/>
+<rect x="0"   y="202" width="700" height="12" fill="#0e0c18"/>
+<rect x="0"   y="214" width="700" height="46" fill="#0b0914"/>
+<!-- Ground joints / flags -->
+<rect x="0"   y="178" width="2" height="12" fill="#08060e"/>
+<rect x="88"  y="178" width="2" height="12" fill="#08060e"/>
+<rect x="176" y="178" width="2" height="12" fill="#08060e"/>
+<rect x="264" y="178" width="2" height="12" fill="#08060e"/>
+<rect x="352" y="178" width="2" height="12" fill="#08060e"/>
+<rect x="440" y="178" width="2" height="12" fill="#08060e"/>
+<rect x="528" y="178" width="2" height="12" fill="#08060e"/>
+<rect x="616" y="178" width="2" height="12" fill="#08060e"/>
+<rect x="44"  y="190" width="2" height="12" fill="#08060e"/>
+<rect x="132" y="190" width="2" height="12" fill="#08060e"/>
+<rect x="220" y="190" width="2" height="12" fill="#08060e"/>
+<rect x="308" y="190" width="2" height="12" fill="#08060e"/>
+<rect x="396" y="190" width="2" height="12" fill="#08060e"/>
+<rect x="484" y="190" width="2" height="12" fill="#08060e"/>
+<rect x="572" y="190" width="2" height="12" fill="#08060e"/>
+<rect x="660" y="190" width="2" height="12" fill="#08060e"/>
+<!-- Audience in background (silhouettes) -->
+<rect x="44"  y="148" width="612" height="30" fill="#0c0a18"/>
+<!-- Individual crowd silhouettes -->
+<rect x="60"  y="138" width="12" height="12" fill="#0e0c1a"/>
+<rect x="80"  y="142" width="10" height="8"  fill="#0e0c1a"/>
+<rect x="100" y="136" width="14" height="14" fill="#100e1c"/>
+<rect x="120" y="140" width="10" height="10" fill="#0e0c1a"/>
+<rect x="140" y="144" width="12" height="6"  fill="#0e0c1a"/>
+<rect x="162" y="138" width="10" height="12" fill="#100e1c"/>
+<rect x="182" y="142" width="12" height="8"  fill="#0e0c1a"/>
+<rect x="220" y="140" width="10" height="10" fill="#0e0c1a"/>
+<rect x="260" y="144" width="12" height="6"  fill="#0e0c1a"/>
+<rect x="300" y="138" width="10" height="12" fill="#100e1c"/>
+<rect x="380" y="140" width="12" height="10" fill="#0e0c1a"/>
+<rect x="420" y="136" width="10" height="14" fill="#100e1c"/>
+<rect x="460" y="142" width="12" height="8"  fill="#0e0c1a"/>
+<rect x="500" y="138" width="10" height="12" fill="#0e0c1a"/>
+<rect x="540" y="144" width="12" height="6"  fill="#0e0c1a"/>
+<rect x="580" y="140" width="10" height="10" fill="#100e1c"/>
+<rect x="618" y="136" width="12" height="14" fill="#0e0c1a"/>
+<rect x="650" y="142" width="10" height="8"  fill="#0e0c1a"/>
+</svg>
