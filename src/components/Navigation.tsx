@@ -35,6 +35,12 @@ export default function Navigation({ showBack, onBack }: NavigationProps) {
           </Link>
           */}
           <Link
+            href="/sources"
+            className="text-sm text-[#e8dcc8]/50 hover:text-[#e8dcc8]/80 transition-colors font-sans"
+          >
+            Sources
+          </Link>
+          <Link
             href="/story"
             className="text-sm text-[#e8dcc8]/50 hover:text-[#e8dcc8]/80 transition-colors font-sans"
           >

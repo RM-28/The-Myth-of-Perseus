@@ -20,8 +20,15 @@ export default function AuthorsNote() {
         </div>
       </nav>
 
-      <main className="min-h-screen pt-20 pb-16 px-6">
-        <div className="max-w-[650px] mx-auto">
+      <main className="min-h-screen pt-20 pb-16 px-6 relative overflow-hidden">
+        <img
+          src="/illustrations/authors-note/bg.svg"
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none"
+          style={{ opacity: 0.35 }}
+        />
+        <div className="max-w-[650px] mx-auto relative z-10">
           <div className="mb-10 text-center">
             <p className="text-sm tracking-[0.3em] uppercase text-[#c9a84c]/70 font-sans mb-1">
               Companion

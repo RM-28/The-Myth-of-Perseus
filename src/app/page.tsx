@@ -2,8 +2,16 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center px-6 text-center">
-      <div className="max-w-[600px]">
+    <main className="min-h-screen flex flex-col items-center justify-center px-6 text-center relative overflow-hidden">
+      {/* Greek night scene background */}
+      <img
+        src="/illustrations/home/bg.svg"
+        alt=""
+        aria-hidden="true"
+        className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none"
+        style={{ opacity: 0.45 }}
+      />
+      <div className="max-w-[600px] relative z-10">
         <p
           className="text-sm tracking-[0.3em] uppercase text-[#c9a84c]/60 font-sans mb-6 opacity-0"
           style={{ animation: "fadeSlideUp 0.6s ease 0.2s forwards" }}

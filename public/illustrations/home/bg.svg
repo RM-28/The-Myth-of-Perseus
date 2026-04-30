@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Home page background — Greek night scene: temple, moon, mountains, olive trees -->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges" preserveAspectRatio="xMidYMid slice">
+<defs>
+  <radialGradient id="hbg-moonGlow" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stopColor="#cfc870" stopOpacity="0.28"/>
+    <stop offset="100%" stopColor="transparent"/>
+  </radialGradient>
+  <radialGradient id="hbg-templeGlow" cx="50%" cy="68%" r="52%">
+    <stop offset="0%" stopColor="#c9a84c" stopOpacity="0.08"/>
+    <stop offset="100%" stopColor="transparent"/>
+  </radialGradient>
+  <radialGradient id="hbg-vig" cx="50%" cy="50%" r="72%">
+    <stop offset="0%" stopColor="transparent"/>
+    <stop offset="100%" stopColor="#040212" stopOpacity="0.80"/>
+  </radialGradient>
+</defs>
+
+<!-- ═══════════════════════════════════════
+     SKY — deep navy, layered
+     ═══════════════════════════════════════ -->
+<rect width="700" height="420" fill="#070512"/>
+<rect width="700" height="100"  fill="#060410"/>
+<rect y="100" width="700" height="80"  fill="#07050f"/>
+<rect y="180" width="700" height="80"  fill="#090714"/>
+<rect y="260" width="700" height="80"  fill="#0b0918"/>
+<rect y="340" width="700" height="80"  fill="#0d0b1c"/>
+
+<!-- ═══════════════════════════════════════
+     STARS — bright white
+     ═══════════════════════════════════════ -->
+<rect x="18"  y="8"   width="2" height="2" fill="#e4dfc2" opacity="0.92"/>
+<rect x="82"  y="22"  width="2" height="2" fill="#e4dfc2" opacity="0.86"/>
+<rect x="148" y="10"  width="2" height="2" fill="#e4dfc2" opacity="0.90"/>
+<rect x="220" y="28"  width="2" height="2" fill="#e4dfc2" opacity="0.84"/>
+<rect x="292" y="14"  width="2" height="2" fill="#e4dfc2" opacity="0.88"/>
+<rect x="368" y="20"  width="2" height="2" fill="#e4dfc2" opacity="0.85"/>
+<rect x="440" y="8"   width="2" height="2" fill="#e4dfc2" opacity="0.89"/>
+<rect x="510" y="24"  width="2" height="2" fill="#e4dfc2" opacity="0.84"/>
+<rect x="578" y="12"  width="2" height="2" fill="#e4dfc2" opacity="0.91"/>
+<rect x="646" y="18"  width="2" height="2" fill="#e4dfc2" opacity="0.85"/>
+<rect x="35"  y="52"  width="2" height="2" fill="#e4dfc2" opacity="0.78"/>
+<rect x="180" y="60"  width="2" height="2" fill="#e4dfc2" opacity="0.80"/>
+<rect x="420" y="48"  width="2" height="2" fill="#e4dfc2" opacity="0.76"/>
+<rect x="520" y="56"  width="2" height="2" fill="#e4dfc2" opacity="0.78"/>
+<rect x="668" y="50"  width="2" height="2" fill="#e4dfc2" opacity="0.76"/>
+
+<!-- ═══ STARS — gold accent ═══ -->
+<rect x="58"  y="34"  width="2" height="2" fill="#c9a84c" opacity="0.65"/>
+<rect x="128" y="46"  width="2" height="2" fill="#c9a84c" opacity="0.62"/>
+<rect x="248" y="38"  width="2" height="2" fill="#c9a84c" opacity="0.68"/>
+<rect x="388" y="50"  width="2" height="2" fill="#c9a84c" opacity="0.60"/>
+<rect x="468" y="40"  width="2" height="2" fill="#c9a84c" opacity="0.65"/>
+<rect x="554" y="44"  width="2" height="2" fill="#c9a84c" opacity="0.62"/>
+<rect x="636" y="36"  width="2" height="2" fill="#c9a84c" opacity="0.67"/>
+<rect x="165" y="74"  width="2" height="2" fill="#c9a84c" opacity="0.52"/>
+<rect x="490" y="68"  width="2" height="2" fill="#c9a84c" opacity="0.50"/>
+
+<!-- ═══ STARS — dim 1px ═══ -->
+<rect x="42"  y="70"  width="1" height="1" fill="#9090a8" opacity="0.52"/>
+<rect x="105" y="82"  width="1" height="1" fill="#9090a8" opacity="0.50"/>
+<rect x="168" y="62"  width="1" height="1" fill="#9090a8" opacity="0.54"/>
+<rect x="235" y="90"  width="1" height="1" fill="#9090a8" opacity="0.48"/>
+<rect x="315" y="78"  width="1" height="1" fill="#9090a8" opacity="0.52"/>
+<rect x="402" y="85"  width="1" height="1" fill="#9090a8" opacity="0.50"/>
+<rect x="482" y="74"  width="1" height="1" fill="#9090a8" opacity="0.53"/>
+<rect x="560" y="88"  width="1" height="1" fill="#9090a8" opacity="0.49"/>
+<rect x="620" y="64"  width="1" height="1" fill="#9090a8" opacity="0.52"/>
+<rect x="68"  y="102" width="1" height="1" fill="#8888a0" opacity="0.42"/>
+<rect x="145" y="112" width="1" height="1" fill="#8888a0" opacity="0.40"/>
+<rect x="280" y="106" width="1" height="1" fill="#8888a0" opacity="0.44"/>
+<rect x="420" y="116" width="1" height="1" fill="#8888a0" opacity="0.42"/>
+<rect x="590" y="108" width="1" height="1" fill="#8888a0" opacity="0.40"/>
+<rect x="330" y="96"  width="1" height="1" fill="#8888a0" opacity="0.38"/>
+<rect x="205" y="118" width="1" height="1" fill="#8888a0" opacity="0.36"/>
+<rect x="645" y="100" width="1" height="1" fill="#8888a0" opacity="0.40"/>
+
+<!-- ═══════════════════════════════════════
+     MOON — crescent, upper left
+     ═══════════════════════════════════════ -->
+<ellipse cx="102" cy="62" rx="50" ry="50" fill="url(#hbg-moonGlow)"/>
+<!-- Moon disc body -->
+<rect x="82"  y="42"  width="6"  height="2"  fill="#d0c878"/>
+<rect x="78"  y="44"  width="10" height="2"  fill="#ccc874"/>
+<rect x="76"  y="46"  width="14" height="4"  fill="#cac870"/>
+<rect x="74"  y="50"  width="16" height="6"  fill="#c8c46c"/>
+<rect x="74"  y="56"  width="16" height="6"  fill="#c4c068"/>
+<rect x="76"  y="62"  width="14" height="4"  fill="#c8c470"/>
+<rect x="78"  y="66"  width="10" height="2"  fill="#ccc874"/>
+<rect x="82"  y="68"  width="6"  height="2"  fill="#d0c878"/>
+<!-- Crescent shadow (dark sky masking right side) -->
+<rect x="86"  y="42"  width="10" height="4"  fill="#070512"/>
+<rect x="84"  y="46"  width="12" height="4"  fill="#070512"/>
+<rect x="84"  y="50"  width="14" height="12" fill="#070512"/>
+<rect x="86"  y="62"  width="12" height="4"  fill="#070512"/>
+<rect x="88"  y="66"  width="8"  height="4"  fill="#070512"/>
+
+<!-- ═══════════════════════════════════════
+     BACKGROUND MOUNTAINS — silhouette
+     ═══════════════════════════════════════ -->
+<!-- Left mountain range -->
+<rect x="0"   y="288" width="130" height="132" fill="#0c0a1a"/>
+<rect x="0"   y="268" width="90"  height="152" fill="#0c0a1a"/>
+<rect x="0"   y="250" width="58"  height="170" fill="#0c0a1a"/>
+<rect x="0"   y="235" width="30"  height="185" fill="#0c0a1a"/>
+<rect x="4"   y="222" width="18"  height="198" fill="#0c0a1a"/>
+<rect x="8"   y="215" width="10"  height="205" fill="#0c0a1a"/>
+<rect x="48"  y="258" width="110" height="162" fill="#0c0a1a"/>
+<rect x="100" y="274" width="120" height="146" fill="#0c0a1a"/>
+
+<!-- Centre background mount (behind temple, darker/further) -->
+<rect x="150" y="242" width="400" height="178" fill="#0e0c1c"/>
+<rect x="200" y="222" width="300" height="198" fill="#0e0c1c"/>
+<rect x="248" y="206" width="204" height="214" fill="#0e0c1c"/>
+<rect x="290" y="194" width="120" height="226" fill="#0e0c1c"/>
+<rect x="320" y="186" width="60"  height="234" fill="#0e0c1c"/>
+<rect x="336" y="180" width="28"  height="240" fill="#0e0c1c"/>
+<rect x="344" y="176" width="12"  height="244" fill="#0e0c1c"/>
+<rect x="348" y="172" width="4"   height="248" fill="#0e0c1c"/>
+
+<!-- Right mountain range -->
+<rect x="480" y="262" width="220" height="158" fill="#0c0a1a"/>
+<rect x="536" y="244" width="164" height="176" fill="#0c0a1a"/>
+<rect x="582" y="228" width="118" height="192" fill="#0c0a1a"/>
+<rect x="626" y="213" width="74"  height="207" fill="#0c0a1a"/>
+<rect x="650" y="202" width="34"  height="218" fill="#0c0a1a"/>
+<rect x="664" y="194" width="14"  height="226" fill="#0c0a1a"/>
+<rect x="669" y="188" width="6"   height="232" fill="#0c0a1a"/>
+
+<!-- ═══════════════════════════════════════
+     TEMPLE — Doric hexastyle
+     Columns at x=210,264,318,372,426,480 (12px wide)
+     Temple platform x=200–500
+     ═══════════════════════════════════════ -->
+
+<!-- STEPS (3 levels) -->
+<rect x="192" y="354" width="316" height="10" fill="#1a1830"/>
+<rect x="192" y="354" width="316" height="2"  fill="#262240"/>
+<rect x="200" y="344" width="300" height="10" fill="#1c1a32"/>
+<rect x="200" y="344" width="300" height="2"  fill="#282444"/>
+<rect x="208" y="334" width="284" height="10" fill="#1e1c34"/>
+<rect x="208" y="334" width="284" height="2"  fill="#2a2648"/>
+
+<!-- STYLOBATE top platform -->
+<rect x="200" y="326" width="300" height="8"  fill="#201e36"/>
+<rect x="200" y="326" width="300" height="2"  fill="#2c2848"/>
+
+<!-- COLUMNS — 12px wide, 70px tall, y=256–326 -->
+<rect x="210" y="256" width="12" height="70" fill="#221e3a"/>
+<rect x="210" y="256" width="2"  height="70" fill="#2e2a50"/>
+<rect x="220" y="256" width="2"  height="70" fill="#14102a"/>
+
+<rect x="264" y="256" width="12" height="70" fill="#221e3a"/>
+<rect x="264" y="256" width="2"  height="70" fill="#2e2a50"/>
+<rect x="274" y="256" width="2"  height="70" fill="#14102a"/>
+
+<rect x="318" y="256" width="12" height="70" fill="#221e3a"/>
+<rect x="318" y="256" width="2"  height="70" fill="#2e2a50"/>
+<rect x="328" y="256" width="2"  height="70" fill="#14102a"/>
+
+<rect x="372" y="256" width="12" height="70" fill="#221e3a"/>
+<rect x="372" y="256" width="2"  height="70" fill="#2e2a50"/>
+<rect x="382" y="256" width="2"  height="70" fill="#14102a"/>
+
+<rect x="426" y="256" width="12" height="70" fill="#221e3a"/>
+<rect x="426" y="256" width="2"  height="70" fill="#2e2a50"/>
+<rect x="436" y="256" width="2"  height="70" fill="#14102a"/>
+
+<rect x="480" y="256" width="12" height="70" fill="#221e3a"/>
+<rect x="480" y="256" width="2"  height="70" fill="#2e2a50"/>
+<rect x="490" y="256" width="2"  height="70" fill="#14102a"/>
+
+<!-- Column capitals (echinus + abacus) -->
+<rect x="207" y="248" width="18" height="4"  fill="#26224a"/>
+<rect x="206" y="244" width="20" height="4"  fill="#28264e"/>
+<rect x="261" y="248" width="18" height="4"  fill="#26224a"/>
+<rect x="260" y="244" width="20" height="4"  fill="#28264e"/>
+<rect x="315" y="248" width="18" height="4"  fill="#26224a"/>
+<rect x="314" y="244" width="20" height="4"  fill="#28264e"/>
+<rect x="369" y="248" width="18" height="4"  fill="#26224a"/>
+<rect x="368" y="244" width="20" height="4"  fill="#28264e"/>
+<rect x="423" y="248" width="18" height="4"  fill="#26224a"/>
+<rect x="422" y="244" width="20" height="4"  fill="#28264e"/>
+<rect x="477" y="248" width="18" height="4"  fill="#26224a"/>
+<rect x="476" y="244" width="20" height="4"  fill="#28264e"/>
+
+<!-- ENTABLATURE (architrave + frieze) -->
+<rect x="198" y="232" width="306" height="12" fill="#262040"/>
+<rect x="198" y="232" width="306" height="2"  fill="#342e56"/>
+<rect x="198" y="242" width="306" height="2"  fill="#18142e"/>
+
+<!-- Triglyphs on frieze (dark rectangular panels) -->
+<rect x="205" y="234" width="10" height="8"  fill="#1a1530"/>
+<rect x="207" y="234" width="2"  height="8"  fill="#222040"/>
+<rect x="211" y="234" width="2"  height="8"  fill="#222040"/>
+<rect x="259" y="234" width="10" height="8"  fill="#1a1530"/>
+<rect x="261" y="234" width="2"  height="8"  fill="#222040"/>
+<rect x="265" y="234" width="2"  height="8"  fill="#222040"/>
+<rect x="313" y="234" width="10" height="8"  fill="#1a1530"/>
+<rect x="315" y="234" width="2"  height="8"  fill="#222040"/>
+<rect x="319" y="234" width="2"  height="8"  fill="#222040"/>
+<rect x="367" y="234" width="10" height="8"  fill="#1a1530"/>
+<rect x="369" y="234" width="2"  height="8"  fill="#222040"/>
+<rect x="373" y="234" width="2"  height="8"  fill="#222040"/>
+<rect x="421" y="234" width="10" height="8"  fill="#1a1530"/>
+<rect x="423" y="234" width="2"  height="8"  fill="#222040"/>
+<rect x="427" y="234" width="2"  height="8"  fill="#222040"/>
+<rect x="475" y="234" width="10" height="8"  fill="#1a1530"/>
+<rect x="477" y="234" width="2"  height="8"  fill="#222040"/>
+<rect x="481" y="234" width="2"  height="8"  fill="#222040"/>
+<rect x="489" y="234" width="10" height="8"  fill="#1a1530"/>
+<rect x="491" y="234" width="2"  height="8"  fill="#222040"/>
+<rect x="495" y="234" width="2"  height="8"  fill="#222040"/>
+
+<!-- PEDIMENT — triangular gable, 4px rows, narrowing 8px per side per row -->
+<!-- Base y=228, top y=152 (76px height, 300px base, slope ~2px/px) -->
+<rect x="198" y="228" width="306" height="4"  fill="#242040"/>
+<rect x="206" y="224" width="290" height="4"  fill="#222040"/>
+<rect x="214" y="220" width="274" height="4"  fill="#20203e"/>
+<rect x="222" y="216" width="258" height="4"  fill="#1e1e3c"/>
+<rect x="230" y="212" width="242" height="4"  fill="#1c1c3a"/>
+<rect x="238" y="208" width="226" height="4"  fill="#1c1a38"/>
+<rect x="246" y="204" width="210" height="4"  fill="#1a1836"/>
+<rect x="254" y="200" width="194" height="4"  fill="#181634"/>
+<rect x="262" y="196" width="178" height="4"  fill="#181432"/>
+<rect x="270" y="192" width="162" height="4"  fill="#161230"/>
+<rect x="278" y="188" width="146" height="4"  fill="#14102e"/>
+<rect x="286" y="184" width="130" height="4"  fill="#140e2c"/>
+<rect x="294" y="180" width="114" height="4"  fill="#120e2a"/>
+<rect x="302" y="176" width="98"  height="4"  fill="#100c28"/>
+<rect x="310" y="172" width="82"  height="4"  fill="#100a26"/>
+<rect x="318" y="168" width="66"  height="4"  fill="#0e0a24"/>
+<rect x="326" y="164" width="50"  height="4"  fill="#0e0822"/>
+<rect x="334" y="160" width="34"  height="4"  fill="#0c0820"/>
+<rect x="342" y="156" width="18"  height="4"  fill="#0a061e"/>
+<rect x="348" y="152" width="6"   height="4"  fill="#0a061c"/>
+<!-- Pediment outline — highlight left edge, darken right -->
+<rect x="198" y="228" width="306" height="2"  fill="#302c54"/>
+<rect x="198" y="228" width="2"   height="80" fill="#302c54"/>
+<rect x="502" y="228" width="2"   height="4"  fill="#181430"/>
+<!-- Pediment acroteria (decorative finials at corners and peak) -->
+<rect x="194" y="222" width="8"   height="6"  fill="#2c2850"/>
+<rect x="196" y="218" width="4"   height="4"  fill="#2c2850"/>
+<rect x="500" y="222" width="8"   height="6"  fill="#2c2850"/>
+<rect x="502" y="218" width="4"   height="4"  fill="#2c2850"/>
+<rect x="347" y="146" width="8"   height="6"  fill="#2c2850"/>
+<rect x="349" y="140" width="4"   height="6"  fill="#2c2850"/>
+
+<!-- Temple interior golden glow -->
+<rect x="222" y="262" width="258" height="62" fill="#c9a84c" opacity="0.025"/>
+
+<!-- ═══════════════════════════════════════
+     OLIVE TREES — flanking the temple
+     ═══════════════════════════════════════ -->
+<!-- LEFT TREE -->
+<!-- Trunk -->
+<rect x="136" y="316" width="8"  height="64" fill="#191228"/>
+<rect x="138" y="312" width="4"  height="68" fill="#211830"/>
+<!-- Main branch left -->
+<rect x="112" y="296" width="28" height="4"  fill="#191228"/>
+<rect x="106" y="290" width="20" height="4"  fill="#191228"/>
+<rect x="100" y="284" width="16" height="4"  fill="#191228"/>
+<!-- Branch right -->
+<rect x="144" y="290" width="20" height="4"  fill="#191228"/>
+<rect x="148" y="282" width="12" height="6"  fill="#191228"/>
+<!-- Foliage — dense olive silver-green layers -->
+<rect x="90"  y="256" width="72" height="44" fill="#141e18"/>
+<rect x="84"  y="264" width="84" height="36" fill="#162018"/>
+<rect x="80"  y="272" width="88" height="28" fill="#182418"/>
+<rect x="88"  y="248" width="58" height="18" fill="#141c18"/>
+<rect x="100" y="240" width="40" height="14" fill="#121a14"/>
+<rect x="112" y="232" width="24" height="12" fill="#101814"/>
+<rect x="118" y="226" width="14" height="8"  fill="#0e1612"/>
+<!-- Leaf highlight clusters -->
+<rect x="92"  y="260" width="4"  height="4"  fill="#263028" opacity="0.65"/>
+<rect x="108" y="256" width="4"  height="4"  fill="#263028" opacity="0.65"/>
+<rect x="126" y="260" width="4"  height="4"  fill="#263028" opacity="0.60"/>
+<rect x="144" y="258" width="4"  height="4"  fill="#263028" opacity="0.60"/>
+<rect x="100" y="250" width="4"  height="4"  fill="#263028" opacity="0.55"/>
+<rect x="118" y="246" width="4"  height="4"  fill="#263028" opacity="0.50"/>
+<!-- Tiny olive fruits (silver-green) -->
+<rect x="98"  y="270" width="2"  height="2"  fill="#8a9878" opacity="0.50"/>
+<rect x="122" y="268" width="2"  height="2"  fill="#8a9878" opacity="0.50"/>
+<rect x="142" y="272" width="2"  height="2"  fill="#8a9878" opacity="0.45"/>
+<rect x="110" y="262" width="2"  height="2"  fill="#8a9878" opacity="0.40"/>
+
+<!-- RIGHT TREE -->
+<!-- Trunk -->
+<rect x="556" y="316" width="8"  height="64" fill="#191228"/>
+<rect x="558" y="312" width="4"  height="68" fill="#211830"/>
+<!-- Main branch right -->
+<rect x="560" y="296" width="28" height="4"  fill="#191228"/>
+<rect x="574" y="290" width="20" height="4"  fill="#191228"/>
+<rect x="584" y="284" width="16" height="4"  fill="#191228"/>
+<!-- Branch left -->
+<rect x="536" y="290" width="20" height="4"  fill="#191228"/>
+<rect x="540" y="282" width="12" height="6"  fill="#191228"/>
+<!-- Foliage -->
+<rect x="538" y="256" width="72" height="44" fill="#141e18"/>
+<rect x="532" y="264" width="84" height="36" fill="#162018"/>
+<rect x="528" y="272" width="88" height="28" fill="#182418"/>
+<rect x="550" y="248" width="58" height="18" fill="#141c18"/>
+<rect x="558" y="240" width="40" height="14" fill="#121a14"/>
+<rect x="564" y="232" width="24" height="12" fill="#101814"/>
+<rect x="568" y="226" width="14" height="8"  fill="#0e1612"/>
+<!-- Leaf highlights -->
+<rect x="544" y="260" width="4"  height="4"  fill="#263028" opacity="0.65"/>
+<rect x="560" y="256" width="4"  height="4"  fill="#263028" opacity="0.65"/>
+<rect x="576" y="260" width="4"  height="4"  fill="#263028" opacity="0.60"/>
+<rect x="594" y="258" width="4"  height="4"  fill="#263028" opacity="0.60"/>
+<rect x="552" y="250" width="4"  height="4"  fill="#263028" opacity="0.55"/>
+<rect x="570" y="246" width="4"  height="4"  fill="#263028" opacity="0.50"/>
+<!-- Fruits -->
+<rect x="550" y="270" width="2"  height="2"  fill="#8a9878" opacity="0.50"/>
+<rect x="574" y="268" width="2"  height="2"  fill="#8a9878" opacity="0.50"/>
+<rect x="592" y="272" width="2"  height="2"  fill="#8a9878" opacity="0.45"/>
+
+<!-- ═══════════════════════════════════════
+     GROUND — marble stone tiles
+     ═══════════════════════════════════════ -->
+<rect y="380" width="700" height="40" fill="#0c0a18"/>
+<rect y="380" width="700" height="4"  fill="#100e1e"/>
+<rect y="384" width="700" height="2"  fill="#0a0816"/>
+<rect y="394" width="700" height="2"  fill="#0a0816"/>
+<rect x="0"   y="386" width="2"  height="14" fill="#0a0816"/>
+<rect x="88"  y="386" width="2"  height="14" fill="#0a0816"/>
+<rect x="176" y="386" width="2"  height="14" fill="#0a0816"/>
+<rect x="264" y="386" width="2"  height="14" fill="#0a0816"/>
+<rect x="352" y="386" width="2"  height="14" fill="#0a0816"/>
+<rect x="440" y="386" width="2"  height="14" fill="#0a0816"/>
+<rect x="528" y="386" width="2"  height="14" fill="#0a0816"/>
+<rect x="616" y="386" width="2"  height="14" fill="#0a0816"/>
+
+<!-- ═══════════════════════════════════════
+     GREEK MEANDER BORDER — bottom strip
+     ═══════════════════════════════════════ -->
+<!-- Solid border strip -->
+<rect y="408" width="700" height="12" fill="#181630"/>
+<rect y="408" width="700" height="2"  fill="#c9a84c" opacity="0.18"/>
+<rect y="418" width="700" height="2"  fill="#c9a84c" opacity="0.10"/>
+<!-- Meander pattern: alternating filled/unfilled 4x4 blocks (simplified key) -->
+<!-- Row A top half -->
+<rect x="0"   y="410" width="4" height="4" fill="#20203c"/>
+<rect x="8"   y="410" width="4" height="4" fill="#20203c"/>
+<rect x="4"   y="412" width="4" height="2" fill="#20203c"/>
+<rect x="8"   y="412" width="4" height="2" fill="#20203c"/>
+<rect x="12"  y="410" width="4" height="2" fill="#20203c"/>
+
+<!-- Repeat meander unit every 16px across width -->
+<!-- Unit: ████░░░░ top / ░░████░░ bottom (simplified stepped key) -->
+<!-- I'll mark the filled top blocks at x = 0,16,32...688 and bottom offset at x=8,24,40...696 -->
+<rect x="0"   y="410" width="8" height="4" fill="#24204060"/>
+<rect x="16"  y="410" width="8" height="4" fill="#24204060"/>
+<rect x="32"  y="410" width="8" height="4" fill="#24204060"/>
+<rect x="48"  y="410" width="8" height="4" fill="#24204060"/>
+<rect x="64"  y="410" width="8" height="4" fill="#24204060"/>
+<rect x="80"  y="410" width="8" height="4" fill="#24204060"/>
+<rect x="96"  y="410" width="8" height="4" fill="#24204060"/>
+<rect x="112" y="410" width="8" height="4" fill="#24204060"/>
+<rect x="128" y="410" width="8" height="4" fill="#24204060"/>
+<rect x="144" y="410" width="8" height="4" fill="#24204060"/>
+<rect x="160" y="410" width="8" height="4" fill="#24204060"/>
+<rect x="176" y="410" width="8" height="4" fill="#24204060"/>
+<rect x="192" y="410" width="8" height="4" fill="#24204060"/>
+<rect x="208" y="410" width="8" height="4" fill="#24204060"/>
+<rect x="224" y="410" width="8" height="4" fill="#24204060"/>
+<rect x="240" y="410" width="8" height="4" fill="#24204060"/>
+<rect x="256" y="410" width="8" height="4" fill="#24204060"/>
+<rect x="272" y="410" width="8" height="4" fill="#24204060"/>
+<rect x="288" y="410" width="8" height="4" fill="#24204060"/>
+<rect x="304" y="410" width="8" height="4" fill="#24204060"/>
+<rect x="320" y="410" width="8" height="4" fill="#24204060"/>
+<rect x="336" y="410" width="8" height="4" fill="#24204060"/>
+<rect x="352" y="410" width="8" height="4" fill="#24204060"/>
+<rect x="368" y="410" width="8" height="4" fill="#24204060"/>
+<rect x="384" y="410" width="8" height="4" fill="#24204060"/>
+<rect x="400" y="410" width="8" height="4" fill="#24204060"/>
+<rect x="416" y="410" width="8" height="4" fill="#24204060"/>
+<rect x="432" y="410" width="8" height="4" fill="#24204060"/>
+<rect x="448" y="410" width="8" height="4" fill="#24204060"/>
+<rect x="464" y="410" width="8" height="4" fill="#24204060"/>
+<rect x="480" y="410" width="8" height="4" fill="#24204060"/>
+<rect x="496" y="410" width="8" height="4" fill="#24204060"/>
+<rect x="512" y="410" width="8" height="4" fill="#24204060"/>
+<rect x="528" y="410" width="8" height="4" fill="#24204060"/>
+<rect x="544" y="410" width="8" height="4" fill="#24204060"/>
+<rect x="560" y="410" width="8" height="4" fill="#24204060"/>
+<rect x="576" y="410" width="8" height="4" fill="#24204060"/>
+<rect x="592" y="410" width="8" height="4" fill="#24204060"/>
+<rect x="608" y="410" width="8" height="4" fill="#24204060"/>
+<rect x="624" y="410" width="8" height="4" fill="#24204060"/>
+<rect x="640" y="410" width="8" height="4" fill="#24204060"/>
+<rect x="656" y="410" width="8" height="4" fill="#24204060"/>
+<rect x="672" y="410" width="8" height="4" fill="#24204060"/>
+<rect x="688" y="410" width="8" height="4" fill="#24204060"/>
+<!-- Bottom row offset -->
+<rect x="8"   y="414" width="8" height="4" fill="#24204060"/>
+<rect x="24"  y="414" width="8" height="4" fill="#24204060"/>
+<rect x="40"  y="414" width="8" height="4" fill="#24204060"/>
+<rect x="56"  y="414" width="8" height="4" fill="#24204060"/>
+<rect x="72"  y="414" width="8" height="4" fill="#24204060"/>
+<rect x="88"  y="414" width="8" height="4" fill="#24204060"/>
+<rect x="104" y="414" width="8" height="4" fill="#24204060"/>
+<rect x="120" y="414" width="8" height="4" fill="#24204060"/>
+<rect x="136" y="414" width="8" height="4" fill="#24204060"/>
+<rect x="152" y="414" width="8" height="4" fill="#24204060"/>
+<rect x="168" y="414" width="8" height="4" fill="#24204060"/>
+<rect x="184" y="414" width="8" height="4" fill="#24204060"/>
+<rect x="200" y="414" width="8" height="4" fill="#24204060"/>
+<rect x="216" y="414" width="8" height="4" fill="#24204060"/>
+<rect x="232" y="414" width="8" height="4" fill="#24204060"/>
+<rect x="248" y="414" width="8" height="4" fill="#24204060"/>
+<rect x="264" y="414" width="8" height="4" fill="#24204060"/>
+<rect x="280" y="414" width="8" height="4" fill="#24204060"/>
+<rect x="296" y="414" width="8" height="4" fill="#24204060"/>
+<rect x="312" y="414" width="8" height="4" fill="#24204060"/>
+<rect x="328" y="414" width="8" height="4" fill="#24204060"/>
+<rect x="344" y="414" width="8" height="4" fill="#24204060"/>
+<rect x="360" y="414" width="8" height="4" fill="#24204060"/>
+<rect x="376" y="414" width="8" height="4" fill="#24204060"/>
+<rect x="392" y="414" width="8" height="4" fill="#24204060"/>
+<rect x="408" y="414" width="8" height="4" fill="#24204060"/>
+<rect x="424" y="414" width="8" height="4" fill="#24204060"/>
+<rect x="440" y="414" width="8" height="4" fill="#24204060"/>
+<rect x="456" y="414" width="8" height="4" fill="#24204060"/>
+<rect x="472" y="414" width="8" height="4" fill="#24204060"/>
+<rect x="488" y="414" width="8" height="4" fill="#24204060"/>
+<rect x="504" y="414" width="8" height="4" fill="#24204060"/>
+<rect x="520" y="414" width="8" height="4" fill="#24204060"/>
+<rect x="536" y="414" width="8" height="4" fill="#24204060"/>
+<rect x="552" y="414" width="8" height="4" fill="#24204060"/>
+<rect x="568" y="414" width="8" height="4" fill="#24204060"/>
+<rect x="584" y="414" width="8" height="4" fill="#24204060"/>
+<rect x="600" y="414" width="8" height="4" fill="#24204060"/>
+<rect x="616" y="414" width="8" height="4" fill="#24204060"/>
+<rect x="632" y="414" width="8" height="4" fill="#24204060"/>
+<rect x="648" y="414" width="8" height="4" fill="#24204060"/>
+<rect x="664" y="414" width="8" height="4" fill="#24204060"/>
+<rect x="680" y="414" width="8" height="4" fill="#24204060"/>
+<rect x="696" y="414" width="4" height="4" fill="#24204060"/>
+
+<!-- ═══════════════════════════════════════
+     ATMOSPHERE — temple glow + vignette
+     ═══════════════════════════════════════ -->
+<rect width="700" height="420" fill="url(#hbg-templeGlow)"/>
+<rect width="700" height="420" fill="url(#hbg-vig)"/>
+
+</svg>

@@ -28,41 +28,34 @@ function Bob({ amp = 8, dur = "2.4s", delay = "0s" }: { amp?: number; dur?: stri
   );
 }
 
+// Cycles through sprite frames using discrete opacity — pixel-art sprite animator
+// `frames` — explicit frame numbers (skips missing frames, e.g. [1,2,4])
+// `pad`    — zero-pad width for frame number in filename (default 2 → "01"; use 0 for no padding)
+function FrameAnim({ base, count = 4, frames, w, h, fps = 8, pad = 2 }: {
+  base: string; count?: number; frames?: number[]; w: number; h: number; fps?: number; pad?: number
+}) {
+  const f = frames ?? Array.from({ length: count }, (_, i) => i + 1);
+  const n = f.length;
+  const dur = `${(n / fps).toFixed(3)}s`;
+  return (
+    <>
+      {f.map((frame, i) => {
+        const vals = Array.from({ length: n }, (_, j) => j === i ? "1" : "0").concat(i === 0 ? "1" : "0").join(";");
+        const kT  = Array.from({ length: n + 1 }, (_, j) => (j / n).toFixed(3)).join(";");
+        return (
+          <image key={i} href={`${base}${pad > 0 ? String(frame).padStart(pad, "0") : frame}.png`}
+            x={0} y={0} width={w} height={h} opacity={i === 0 ? 1 : 0}
+            style={{ imageRendering: "pixelated" }}>
+            <animate attributeName="opacity" values={vals} keyTimes={kT} calcMode="discrete" dur={dur} repeatCount="indefinite"/>
+          </image>
+        );
+      })}
+    </>
+  );
+}
+
 // ─── Chapter I: The Feast of Polydectes ───────────────────────────────────
 function ChapterI({ className, style }: IllustrationProps) {
-  const vr = mkVr(4);
-  const SK="#d49060",SK2="#b07848",EY="#18101e";
-  const BR="#b87832",BH="#d4a450";
-  const TN="#dcd4a4",BL="#7a5028",LT="#5a3c22";
-  const CP="#c41818",CD="#8a1010",PL="#700c0c";
-  const WH="#e8e8f8",GD="#d4a428",PP="#7030b0",PD="#501890",GR="#908880";
-
-  const perseus: PR[] = [
-    vr(0,0,5,2,PL),
-    vr(3,0,8,2,BH), vr(2,1,10,3,BR), vr(2,4,2,5,BR),
-    vr(4,1,6,7,SK), vr(8,3,1,1,EY), vr(9,5,1,2,SK),
-    vr(5,8,4,2,SK),
-    vr(0,4,2,22,CP), vr(0,26,2,3,CD),
-    vr(3,10,8,9,TN), vr(3,16,8,2,BL),
-    vr(1,10,2,8,SK), vr(11,10,2,8,TN),
-    vr(4,19,2,9,SK), vr(8,19,2,9,SK),
-    vr(3,28,3,2,LT), vr(7,28,3,2,LT),
-    vr(2,25,2,3,WH), vr(10,25,2,3,WH),
-  ];
-
-  const polydectes: PR[] = [
-    vr(3,0,8,1,GD), vr(3,0,2,3,GD), vr(6,0,2,3,GD), vr(10,0,2,3,GD),
-    vr(4,2,6,6,SK2), vr(8,4,1,1,EY), vr(9,5,1,2,SK2),
-    vr(4,7,5,2,GR),
-    vr(5,9,4,2,SK2),
-    vr(2,11,10,10,PP), vr(2,11,10,1,PD),
-    vr(2,18,10,2,GD),
-    vr(0,11,2,9,PP), vr(12,11,2,9,PP),
-    vr(12,7,2,5,PP),
-    vr(4,21,2,8,PP), vr(8,21,2,8,PP),
-    vr(3,29,4,2,LT), vr(7,29,4,2,LT),
-  ];
-
   return (
     <svg viewBox="0 0 700 260" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" className={className} style={style} aria-hidden="true">
       <defs>
@@ -78,7 +71,7 @@ function ChapterI({ className, style }: IllustrationProps) {
           values="0,0; -4,-3; 0,0" keyTimes="0; 0.5; 1"
           calcMode="spline" keySplines="0.42,0,0.58,1; 0.42,0,0.58,1"
           dur="3.0s" repeatCount="indefinite" additive="sum"/>
-        <Rects rs={perseus}/>
+        <FrameAnim base="/Perseus/perseus_idle_" w={72} h={96} fps={6}/>
       </g>
       {/* Polydectes — strides forward toward Perseus demanding the quest */}
       <g transform="translate(650,25) scale(-1,1)">
@@ -86,7 +79,7 @@ function ChapterI({ className, style }: IllustrationProps) {
           values="0,0; 30,-5; 0,0" keyTimes="0; 0.45; 1"
           calcMode="spline" keySplines="0.3,0,0.5,1; 0.5,0,0.7,1"
           dur="3.0s" repeatCount="indefinite" additive="sum"/>
-        <Rects rs={polydectes}/>
+        <FrameAnim base="/Polydectes/polydectes_idle_" w={96} h={128} fps={6}/>
       </g>
       <rect width="700" height="260" fill="url(#c1-vig)"/>
       <rect x="1" y="1" width="698" height="258" fill="none" stroke="#c9a84c" strokeWidth="0.8" strokeOpacity="0.3"/>
@@ -96,42 +89,6 @@ function ChapterI({ className, style }: IllustrationProps) {
 
 // ─── Chapter II: The Gods Take Interest ───────────────────────────────────
 function ChapterII({ className, style }: IllustrationProps) {
-  const vr = mkVr(4);
-  const SK3="#dab07a",EY="#18101e";
-  const BR="#b87832",BH="#d4a450";
-  const GD="#d4a428",GS="#c89c20",GL="#e8c848";
-  const LT="#5a3c22";
-  const GR="#7a8090",GR2="#9aa0b0";
-  const WH="#e8e8f8";
-
-  const hermes: PR[] = [
-    vr(2,0,10,2,GD), vr(2,1,10,3,GS),
-    vr(0,0,3,3,WH), vr(11,0,3,3,WH),
-    vr(4,1,6,6,SK3), vr(8,3,1,1,EY), vr(9,4,1,2,SK3),
-    vr(5,7,4,2,SK3),
-    vr(1,2,1,22,BR),
-    vr(0,2,3,1,GD), vr(0,4,2,1,GD), vr(2,6,2,1,GD), vr(0,8,2,1,GD), vr(2,10,2,1,GD),
-    vr(3,9,8,10,GD), vr(3,9,8,1,GS),
-    vr(3,16,8,2,GL),
-    vr(1,9,2,8,SK3), vr(11,9,2,8,GD),
-    vr(4,19,2,9,SK3), vr(8,19,2,9,SK3),
-    vr(3,28,3,2,GD), vr(7,28,3,2,GD),
-    vr(2,25,2,3,WH), vr(10,25,2,3,WH),
-  ];
-
-  const athena: PR[] = [
-    vr(3,0,8,1,BR), vr(8,0,4,3,GD),
-    vr(2,1,10,3,GR), vr(2,4,2,5,GR),
-    vr(4,1,6,7,SK3), vr(8,3,1,1,EY), vr(9,4,1,2,SK3),
-    vr(5,8,4,2,SK3),
-    vr(13,0,1,24,BR), vr(12,0,3,3,BH),
-    vr(3,10,8,10,GR), vr(3,10,8,1,GR2),
-    vr(3,17,8,2,BR),
-    vr(1,10,2,8,GR), vr(11,10,2,8,GR),
-    vr(4,20,2,9,SK3), vr(8,20,2,9,SK3),
-    vr(3,29,3,2,BR), vr(7,29,3,2,BR),
-  ];
-
   return (
     <svg viewBox="0 0 700 260" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" className={className} style={style} aria-hidden="true">
       <defs>
@@ -153,16 +110,16 @@ function ChapterII({ className, style }: IllustrationProps) {
           keyTimes="0; 0.35; 0.6; 1"
           calcMode="spline" keySplines="0.3,0,0.5,1; 0.42,0,0.58,1; 0.5,0,0.8,1"
           dur="3.2s" repeatCount="indefinite" additive="sum"/>
-        <Rects rs={hermes}/>
+        <FrameAnim base="/Hermes/hermes_idle_" pad={0} w={96} h={128} fps={6}/>
       </g>
-      {/* Athena — moves forward pointing at Perseus (her local +x = world left = toward center) */}
+      {/* Athena — flipped to face left toward Perseus */}
       <g transform="translate(650,20) scale(-1,1)">
         <animateTransform attributeName="transform" type="translate"
           values="0,0; 35,-8; 35,-8; 0,0"
           keyTimes="0; 0.35; 0.6; 1"
           calcMode="spline" keySplines="0.3,0,0.5,1; 0.42,0,0.58,1; 0.5,0,0.8,1"
           dur="3.2s" begin="0.4s" repeatCount="indefinite" additive="sum"/>
-        <Rects rs={athena}/>
+        <FrameAnim base="/Athena/athena_idle_" pad={0} w={96} h={128} fps={6}/>
       </g>
       <rect width="700" height="260" fill="url(#c2-vig)"/>
       <rect x="1" y="1" width="698" height="258" fill="none" stroke="#c9a84c" strokeWidth="0.8" strokeOpacity="0.3"/>
@@ -190,6 +147,16 @@ function ChapterIII({ className, style }: IllustrationProps) {
     vr(3,23,4,2,GR), vr(7,23,4,2,GR),
   ];
 
+  // 4s cycle: eye passes Left→Right→Left
+  // Each hold: 1.5s. Each transit: 0.5s, arcing upward through the gap.
+  // Left sister at translate(50,40), right hand ≈ SVG (90,88)
+  // Right sister at translate(650,40) scale(-1,1), left hand ≈ SVG (610,88)
+  // Arc peak midway: (350,68)
+  const D = "4s";
+  const eKT = "0; 0.375; 0.4375; 0.5; 0.875; 0.9375; 1";
+  const eXY = "90,88; 90,88; 350,68; 610,88; 610,88; 350,68; 90,88";
+  const eKS = "0.5,0,0.5,0; 0.3,0,0.7,1; 0.3,0,0.7,1; 0.5,0,0.5,0; 0.3,0,0.7,1; 0.3,0,0.7,1";
+
   return (
     <svg viewBox="0 0 700 260" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" className={className} style={style} aria-hidden="true">
       <defs>
@@ -198,36 +165,44 @@ function ChapterIII({ className, style }: IllustrationProps) {
           <stop offset="100%" stopColor="#020208" stopOpacity="0.92"/>
         </radialGradient>
         <radialGradient id="c3-eye" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor="#ddd2ae" stopOpacity="0.22"/>
+          <stop offset="0%" stopColor="#d4b030" stopOpacity="0.85"/>
           <stop offset="100%" stopColor="transparent"/>
         </radialGradient>
       </defs>
       <image href="/illustrations/chapter3/bg.svg" x="0" y="0" width="700" height="260"/>
-      {/* Left graeae — reaches right (positive x) toward center */}
+
+      {/* Left sister — reaches right toward center when passing/receiving */}
       <g transform="translate(50,40)">
         <animateTransform attributeName="transform" type="translate"
-          values="0,0; 8,0; 0,0"
-          keyTimes="0; 0.5; 1"
-          calcMode="spline" keySplines="0.42,0,0.58,1; 0.42,0,0.58,1"
-          dur="2.6s" repeatCount="indefinite" additive="sum"/>
+          values="0,0; 0,0; 10,0; 0,0; 10,0; 10,0; 0,0"
+          keyTimes="0; 0.3; 0.5; 0.625; 0.875; 1.0; 1.0"
+          calcMode="spline" keySplines="0.5,0,0.5,0; 0.3,0,0.5,1; 0.5,0,0.3,1; 0.3,0,0.5,1; 0.5,0,0.5,0; 0.5,0,0.5,0"
+          dur={D} repeatCount="indefinite" additive="sum"/>
         <Rects rs={graeae}/>
       </g>
-      {/* Right graeae — mirrored; local +x = world -x, so reaches left toward center */}
+
+      {/* Right sister — mirrored; local +x = world −x, reaches left when passing/receiving */}
       <g transform="translate(650,40) scale(-1,1)">
         <animateTransform attributeName="transform" type="translate"
-          values="0,0; 8,0; 0,0"
-          keyTimes="0; 0.5; 1"
-          calcMode="spline" keySplines="0.42,0,0.58,1; 0.42,0,0.58,1"
-          dur="2.6s" begin="1.3s" repeatCount="indefinite" additive="sum"/>
+          values="0,0; 10,0; 10,0; 0,0; 0,0; 10,0; 0,0"
+          keyTimes="0; 0.375; 0.625; 0.75; 0.875; 1.0; 1.0"
+          calcMode="spline" keySplines="0.3,0,0.5,1; 0.5,0,0.5,0; 0.5,0,0.3,1; 0.5,0,0.5,0; 0.3,0,0.5,1; 0.5,0,0.5,0"
+          dur={D} repeatCount="indefinite" additive="sum"/>
         <Rects rs={graeae}/>
       </g>
-      {/* Shared eye hovering between them */}
-      <ellipse cx="350" cy="148" rx="60" ry="40" fill="url(#c3-eye)">
-        <animate attributeName="opacity" values="0.5;1;0.5" keyTimes="0;0.5;1" dur="3s" repeatCount="indefinite"/>
-      </ellipse>
-      <rect x="347" y="144" width="6" height="6" fill="#ddd2ae" opacity="0.7">
-        <animate attributeName="opacity" values="0.4;1;0.4" keyTimes="0;0.5;1" dur="3s" repeatCount="indefinite"/>
-      </rect>
+
+      {/* The shared golden eye — arcs between the two sisters' outstretched hands */}
+      <g>
+        <animateTransform attributeName="transform" type="translate"
+          values={eXY} keyTimes={eKT} calcMode="spline" keySplines={eKS}
+          dur={D} repeatCount="indefinite"/>
+        <ellipse cx="0" cy="0" rx="13" ry="9" fill="url(#c3-eye)" opacity="0.7"/>
+        <ellipse cx="0" cy="0" rx="6"  ry="4" fill="#c8a020"/>
+        <ellipse cx="0" cy="0" rx="4"  ry="3" fill="#a07808"/>
+        <ellipse cx="0" cy="0" rx="2"  ry="2" fill="#100808"/>
+        <rect    x="-1" y="-2" width="2" height="1" fill="#e8d050" opacity="0.9"/>
+      </g>
+
       <rect width="700" height="260" fill="url(#c3-vig)"/>
       <rect x="1" y="1" width="698" height="258" fill="none" stroke="#c9a84c" strokeWidth="0.8" strokeOpacity="0.3"/>
     </svg>
@@ -236,38 +211,16 @@ function ChapterIII({ className, style }: IllustrationProps) {
 
 // ─── Chapter IV: The Nymphs' Gifts ────────────────────────────────────────
 function ChapterIV({ className, style }: IllustrationProps) {
-  const vr = mkVr(4);
-  const SK="#d49060",SK3="#dab07a",EY="#18101e";
-  const BR="#b87832";
-  const TN="#dcd4a4",BL="#7a5028",LT="#5a3c22";
-  const CP="#c41818",CD="#8a1010",PL="#700c0c";
-  const WH="#e8e8f8",GD="#d4a428",WG="#d4cce8";
 
-  const perseusFloat: PR[] = [
-    vr(0,0,5,2,PL),
-    vr(3,0,8,2,"#d4a450"), vr(2,1,10,3,BR), vr(2,4,2,5,BR),
-    vr(4,1,6,7,SK), vr(8,3,1,1,EY), vr(9,5,1,2,SK),
-    vr(5,8,4,2,SK),
-    vr(0,4,2,22,CP), vr(0,26,2,3,CD),
-    vr(3,10,8,9,TN), vr(3,16,8,2,BL),
-    vr(0,8,2,9,SK), vr(12,8,2,9,TN),
-    vr(4,20,2,8,SK), vr(9,20,2,8,SK),
-    vr(3,28,3,2,LT), vr(8,28,3,2,LT),
-    vr(2,26,2,3,WH), vr(10,26,2,3,WH),
-  ];
-
-  const nymph: PR[] = [
-    vr(3,0,8,3,GD), vr(2,1,4,4,GD),
-    vr(4,2,6,5,SK3), vr(8,4,1,1,EY), vr(9,5,1,1,SK3),
-    vr(5,7,4,2,SK3),
-    vr(0,9,3,2,SK3), vr(11,9,3,2,SK3),
-    vr(0,8,3,3,GD), vr(12,8,2,4,BR),
-    vr(3,9,8,10,WG), vr(3,9,8,1,WH),
-    vr(3,16,8,2,GD),
-    vr(1,9,2,8,SK3), vr(11,9,2,8,SK3),
-    vr(2,19,10,8,WG),
-    vr(4,27,3,2,SK3), vr(8,27,3,2,SK3),
-  ];
+  // 20s cycle: Perseus walks (0–3s), then one nymph per phase (3–20s)
+  const D = "20s";
+  // Nymph hand position in SVG (right side of scene, left-extended arm toward Perseus)
+  const NX = 428, NY = 70;
+  // Perseus equip positions in SVG (he lands at translate(150,20), sprite 96×128)
+  // Centers of each equipped item in world coords:
+  const KBX=239, KBY=114;  // kibisis — right hip
+  const CAX=208, CAY=29;   // cap     — above head
+  const SLX=204, SLY=143;  // sandals — feet
 
   return (
     <svg viewBox="0 0 700 260" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" className={className} style={style} aria-hidden="true">
@@ -278,65 +231,120 @@ function ChapterIV({ className, style }: IllustrationProps) {
         </radialGradient>
       </defs>
       <image href="/illustrations/chapter4/bg.svg" x="0" y="0" width="700" height="260"/>
-      {/* Perseus — floats toward nymph to receive gifts, then drifts back */}
-      <g transform="translate(170,15)">
-        <animateTransform attributeName="transform" type="translate"
-          values="0,0; 110,-14; 110,-14; 0,0"
-          keyTimes="0; 0.3; 0.6; 1"
-          calcMode="spline" keySplines="0.3,0,0.5,1; 0.42,0,0.58,1; 0.5,0,0.8,1"
-          dur="3.6s" repeatCount="indefinite" additive="sum"/>
-        <Rects rs={perseusFloat}/>
-      </g>
-      {/* Nymph — leans forward extending gifts toward Perseus, then bows back */}
-      <g transform="translate(536,25) scale(-1,1)">
-        <animateTransform attributeName="transform" type="translate"
-          values="0,0; 100,8; 100,8; 0,0"
-          keyTimes="0; 0.3; 0.6; 1"
-          calcMode="spline" keySplines="0.3,0,0.5,1; 0.42,0,0.58,1; 0.5,0,0.8,1"
-          dur="3.6s" begin="0.2s" repeatCount="indefinite" additive="sum"/>
-        <Rects rs={nymph}/>
-      </g>
-      {/* Kibisis — golden bag flies from nymph's hand to Perseus's hand */}
+
+      {/* Perseus — walks in from left (0–3s), stands and receives gifts */}
       <g>
         <animateTransform attributeName="transform" type="translate"
-          values="450,90; 450,90; 340,72; 340,72; 450,90"
-          keyTimes="0; 0.1; 0.4; 0.62; 1"
-          calcMode="spline" keySplines="0.42,0,0.58,1; 0.3,0,0.5,1; 0.42,0,0.58,1; 0.5,0,0.8,1"
-          dur="3.6s" repeatCount="indefinite"/>
-        <rect x="-10" y="-14" width="20" height="22" fill="#d4a428" rx="2"/>
-        <rect x="-7" y="-20" width="14" height="8" fill="#b87832"/>
-        <rect x="-3" y="-24" width="6" height="6" fill="#d4a428"/>
-        <rect x="-8" y="-12" width="16" height="2" fill="#c49020" opacity="0.7"/>
-        <rect x="-8" y="-6" width="16" height="2" fill="#c49020" opacity="0.6"/>
+          values="30,30; 160,30; 160,30"
+          keyTimes="0; 0.15; 1"
+          calcMode="spline" keySplines="0.3,0,0.5,1; 0.42,0,0.58,1"
+          dur={D} repeatCount="indefinite"/>
+        {/* Phase keyTimes: walk | idle | +kibisis | +cap | +sandals | end */}
+        {/* Walk (0–0.15) */}
+        <g>
+          <animate attributeName="opacity" values="1;0;0;0;0;0" keyTimes="0;0.15;0.35;0.65;0.95;1" calcMode="discrete" dur={D} repeatCount="indefinite"/>
+          <FrameAnim base="/Perseus/perseus_walk_" w={96} h={128} fps={8}/>
+        </g>
+        {/* Idle, no items (0.15–0.35) */}
+        <g>
+          <animate attributeName="opacity" values="0;1;0;0;0;0" keyTimes="0;0.15;0.35;0.65;0.95;1" calcMode="discrete" dur={D} repeatCount="indefinite"/>
+          <FrameAnim base="/Perseus/perseus_idle_" w={96} h={128} fps={6}/>
+        </g>
+        {/* Idle + kibisis (0.35–0.65) — frame 03 missing, skip it */}
+        <g>
+          <animate attributeName="opacity" values="0;0;1;0;0;0" keyTimes="0;0.15;0.35;0.65;0.95;1" calcMode="discrete" dur={D} repeatCount="indefinite"/>
+          <FrameAnim base="/Perseus/perseus_idle_kibisis_" frames={[1,2,4]} w={96} h={128} fps={6}/>
+        </g>
+        {/* Idle + kibisis + cap (0.65–0.95) */}
+        <g>
+          <animate attributeName="opacity" values="0;0;0;1;0;0" keyTimes="0;0.15;0.35;0.65;0.95;1" calcMode="discrete" dur={D} repeatCount="indefinite"/>
+          <FrameAnim base="/Perseus/perseus_idle_kibisis_cap_" w={96} h={128} fps={6}/>
+        </g>
+        {/* Idle + all items (0.95–1.0) — frame 03 missing, skip it */}
+        <g>
+          <animate attributeName="opacity" values="0;0;0;0;1;0" keyTimes="0;0.15;0.35;0.65;0.95;1" calcMode="discrete" dur={D} repeatCount="indefinite"/>
+          <FrameAnim base="/Perseus/perseus_idle_all_" frames={[1,2,4]} w={96} h={128} fps={6}/>
+        </g>
       </g>
-      {/* Cap of Hades — dark helm passes over */}
+
+      {/* ── Nymph 1: rises from Styx (t=3–5s), gives Kibisis (t=6–7s), retreats (t=7–9s) ── */}
       <g>
         <animateTransform attributeName="transform" type="translate"
-          values="456,118; 456,118; 346,100; 346,100; 456,118"
-          keyTimes="0; 0.1; 0.4; 0.62; 1"
-          calcMode="spline" keySplines="0.42,0,0.58,1; 0.3,0,0.5,1; 0.42,0,0.58,1; 0.5,0,0.8,1"
-          dur="3.6s" begin="0.55s" repeatCount="indefinite"/>
-        <rect x="-14" y="-8" width="28" height="12" fill="#2a2040"/>
-        <rect x="-12" y="-16" width="24" height="10" fill="#3a3060"/>
-        <rect x="-10" y="-20" width="20" height="6" fill="#4a4070"/>
-        <rect x="-6" y="-24" width="12" height="6" fill="#3a3060"/>
-        <rect x="-14" y="-6" width="4" height="10" fill="#241a38"/>
-        <rect x="10" y="-6" width="4" height="10" fill="#241a38"/>
+          values="470,220; 470,220; 470,30; 470,30; 470,220; 470,220"
+          keyTimes="0; 0.15; 0.25; 0.35; 0.45; 1"
+          calcMode="spline" keySplines="0.42,0,0.58,1; 0.3,0,0.5,1; 0.42,0,0.58,1; 0.5,0,0.8,1; 0.42,0,0.58,1"
+          dur={D} repeatCount="indefinite"/>
+        <FrameAnim base="/Nymph/stygian_nymph_idle_frame" pad={0} w={96} h={128} fps={6}/>
       </g>
-      {/* Winged sandals — white-feathered, arc across last */}
+      {/* Stygian ripple — Nymph 1 */}
+      <ellipse cx="470" cy="155" rx="4" ry="2" fill="none" stroke="#7888a0" strokeWidth="1" opacity="0">
+        <animate attributeName="opacity" values="0;0;0.7;0.2;0;0" keyTimes="0;0.15;0.18;0.24;0.28;1" calcMode="linear" dur={D} repeatCount="indefinite"/>
+        <animate attributeName="rx"      values="4;4;20;30;36;4"  keyTimes="0;0.15;0.18;0.24;0.28;1" calcMode="linear" dur={D} repeatCount="indefinite"/>
+        <animate attributeName="ry"      values="2;2;6;9;11;2"    keyTimes="0;0.15;0.18;0.24;0.28;1" calcMode="linear" dur={D} repeatCount="indefinite"/>
+      </ellipse>
+      {/* Kibisis in transit — held at nymph (t=5–6s), flies to Perseus (t=6–7s) */}
+      <g>
+        <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.249;0.25;0.349;0.35;1" calcMode="linear" dur={D} repeatCount="indefinite"/>
+        <animateTransform attributeName="transform" type="translate"
+          values={`${NX},${NY}; ${NX},${NY}; ${KBX},${KBY}; ${KBX},${KBY}`}
+          keyTimes="0; 0.30; 0.35; 1"
+          calcMode="spline" keySplines="0.42,0,0.58,1; 0.3,0,0.5,1; 0.42,0,0.58,1"
+          dur={D} repeatCount="indefinite"/>
+        <image href="/Perseus/item_kibisis.png" x="-24" y="-24" width="48" height="48" style={{imageRendering:"pixelated"}}/>
+      </g>
+
+      {/* ── Nymph 2: rises (t=9–11s), gives Cap of Hades (t=12–13s), retreats (t=13–15s) ── */}
       <g>
         <animateTransform attributeName="transform" type="translate"
-          values="462,146; 462,146; 352,128; 352,128; 462,146"
-          keyTimes="0; 0.1; 0.4; 0.62; 1"
-          calcMode="spline" keySplines="0.42,0,0.58,1; 0.3,0,0.5,1; 0.42,0,0.58,1; 0.5,0,0.8,1"
-          dur="3.6s" begin="1.1s" repeatCount="indefinite"/>
-        <rect x="-12" y="-4" width="24" height="8" fill="#7a5028"/>
-        <rect x="-10" y="-4" width="24" height="4" fill="#9a6838"/>
-        <rect x="-14" y="-12" width="8" height="10" fill="#e8e8f8"/>
-        <rect x="-16" y="-16" width="6" height="6" fill="#f0f0fc"/>
-        <rect x="6" y="-12" width="8" height="10" fill="#e8e8f8"/>
-        <rect x="10" y="-16" width="6" height="6" fill="#f0f0fc"/>
+          values="470,220; 470,220; 470,30; 470,30; 470,220; 470,220"
+          keyTimes="0; 0.45; 0.55; 0.65; 0.75; 1"
+          calcMode="spline" keySplines="0.42,0,0.58,1; 0.3,0,0.5,1; 0.42,0,0.58,1; 0.5,0,0.8,1; 0.42,0,0.58,1"
+          dur={D} repeatCount="indefinite"/>
+        <FrameAnim base="/Nymph/stygian_nymph_idle_frame" pad={0} w={96} h={128} fps={6}/>
       </g>
+      {/* Stygian ripple — Nymph 2 */}
+      <ellipse cx="470" cy="155" rx="4" ry="2" fill="none" stroke="#7888a0" strokeWidth="1" opacity="0">
+        <animate attributeName="opacity" values="0;0;0.7;0.2;0;0" keyTimes="0;0.45;0.48;0.54;0.58;1" calcMode="linear" dur={D} repeatCount="indefinite"/>
+        <animate attributeName="rx"      values="4;4;20;30;36;4"  keyTimes="0;0.45;0.48;0.54;0.58;1" calcMode="linear" dur={D} repeatCount="indefinite"/>
+        <animate attributeName="ry"      values="2;2;6;9;11;2"    keyTimes="0;0.45;0.48;0.54;0.58;1" calcMode="linear" dur={D} repeatCount="indefinite"/>
+      </ellipse>
+      {/* Cap of Hades in transit — held at nymph (t=11–12s), flies to Perseus (t=12–13s) */}
+      <g>
+        <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.549;0.55;0.649;0.65;1" calcMode="linear" dur={D} repeatCount="indefinite"/>
+        <animateTransform attributeName="transform" type="translate"
+          values={`${NX},${NY}; ${NX},${NY}; ${CAX},${CAY}; ${CAX},${CAY}`}
+          keyTimes="0; 0.60; 0.65; 1"
+          calcMode="spline" keySplines="0.42,0,0.58,1; 0.3,0,0.5,1; 0.42,0,0.58,1"
+          dur={D} repeatCount="indefinite"/>
+        <image href="/Perseus/item_cap_of_hades.png" x="-24" y="-24" width="48" height="48" style={{imageRendering:"pixelated"}}/>
+      </g>
+
+      {/* ── Nymph 3: rises (t=15–17s), gives Sandals (t=18–19s), retreats (t=19–20s) ── */}
+      <g>
+        <animateTransform attributeName="transform" type="translate"
+          values="470,220; 470,220; 470,30; 470,30; 470,220"
+          keyTimes="0; 0.75; 0.85; 0.95; 1"
+          calcMode="spline" keySplines="0.42,0,0.58,1; 0.3,0,0.5,1; 0.42,0,0.58,1; 0.5,0,0.8,1"
+          dur={D} repeatCount="indefinite"/>
+        <FrameAnim base="/Nymph/stygian_nymph_idle_frame" pad={0} w={96} h={128} fps={6}/>
+      </g>
+      {/* Stygian ripple — Nymph 3 */}
+      <ellipse cx="470" cy="155" rx="4" ry="2" fill="none" stroke="#7888a0" strokeWidth="1" opacity="0">
+        <animate attributeName="opacity" values="0;0;0.7;0.2;0;0" keyTimes="0;0.75;0.78;0.84;0.88;1" calcMode="linear" dur={D} repeatCount="indefinite"/>
+        <animate attributeName="rx"      values="4;4;20;30;36;4"  keyTimes="0;0.75;0.78;0.84;0.88;1" calcMode="linear" dur={D} repeatCount="indefinite"/>
+        <animate attributeName="ry"      values="2;2;6;9;11;2"    keyTimes="0;0.75;0.78;0.84;0.88;1" calcMode="linear" dur={D} repeatCount="indefinite"/>
+      </ellipse>
+      {/* Winged sandals in transit — held at nymph (t=17–18s), flies to Perseus (t=18–19s) */}
+      <g>
+        <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.849;0.85;0.949;0.95;1" calcMode="linear" dur={D} repeatCount="indefinite"/>
+        <animateTransform attributeName="transform" type="translate"
+          values={`${NX},${NY}; ${NX},${NY}; ${SLX},${SLY}; ${SLX},${SLY}`}
+          keyTimes="0; 0.90; 0.95; 1"
+          calcMode="spline" keySplines="0.42,0,0.58,1; 0.3,0,0.5,1; 0.42,0,0.58,1"
+          dur={D} repeatCount="indefinite"/>
+        <image href="/Perseus/item_winged_sandals.png" x="-24" y="-24" width="48" height="48" style={{imageRendering:"pixelated"}}/>
+      </g>
+
       <rect width="700" height="260" fill="url(#c4-vig)"/>
       <rect x="1" y="1" width="698" height="258" fill="none" stroke="#c9a84c" strokeWidth="0.8" strokeOpacity="0.3"/>
     </svg>
@@ -344,41 +352,31 @@ function ChapterIV({ className, style }: IllustrationProps) {
 }
 
 // ─── Chapter V: The Gorgon's Lair ─────────────────────────────────────────
+// Gorgon sprites: 24×32 px PNGs in /public/Gorgons/, rendered at 4× (96×128 SVG units)
 function ChapterV({ className, style }: IllustrationProps) {
-  const vr = mkVr(4);
-  const SK="#d49060",SK4="#c89858",EY="#18101e";
-  const BR="#b87832",BH="#d4a450";
-  const TN="#dcd4a4",BL="#7a5028",LT="#5a3c22";
-  const CP="#c41818",CD="#8a1010",PL="#700c0c";
-  const WH="#e8e8f8",GN="#3a5030",SN="#5a7040",SL="#78905a";
+  const D = "14s";
+  // Phase keyTimes (7 values):
+  // 0–0.40 walk in | 0.40–0.55 hold (aegis raised) | 0.55–0.65 strike | 0.65–0.75 kill hold | 0.75–0.85 retreat | 0.85–1 exit
+  const kT = "0; 0.40; 0.55; 0.65; 0.75; 0.85; 1";
 
-  const vrM = mkVr(4);
-  const medusa: PR[] = [
-    vrM(4,0,12,3,SN), vrM(2,0,4,4,GN), vrM(14,0,4,4,GN),
-    vrM(0,1,3,3,SL), vrM(17,1,3,3,SL),
-    vrM(6,0,2,5,GN), vrM(12,0,2,5,GN), vrM(9,0,2,5,GN),
-    vrM(0,2,2,1,SL), vrM(18,2,2,1,SL),
-    vrM(6,2,8,6,SK4), vrM(12,4,1,1,EY), vrM(13,5,1,1,SK4),
-    vrM(7,4,6,1,"#9a7850"),
-    vrM(2,8,16,6,SN), vrM(2,8,2,4,GN), vrM(16,8,2,4,GN),
-    vrM(4,10,4,2,SK4), vrM(12,10,4,2,SK4),
-    vrM(0,12,4,3,GN), vrM(16,12,4,3,GN),
-  ];
 
-  const perseusSt: PR[] = [
-    vr(0,0,5,2,PL),
-    vr(3,0,8,2,BH), vr(2,1,10,3,BR), vr(2,4,2,5,BR),
-    vr(4,1,6,7,SK), vr(8,3,1,1,EY), vr(9,5,1,2,SK),
-    vr(5,8,4,2,SK),
-    vr(0,4,2,22,CP), vr(0,26,2,3,CD),
-    vr(3,10,8,9,TN), vr(3,16,8,2,BL),
-    vr(11,4,4,8,BR), vr(12,4,4,7,BH),
-    vr(1,10,2,8,SK), vr(11,8,2,10,SK),
-    vr(0,6,2,6,BH),
-    vr(4,20,2,9,SK), vr(8,20,2,9,SK),
-    vr(3,29,3,2,LT), vr(7,29,3,2,LT),
-    vr(2,26,2,3,WH), vr(10,26,2,3,WH),
-  ];
+  // 4-frame discrete PNG animation helper — cycles frames at given fps
+  const px = { width: 96, height: 128, style: { imageRendering: 'pixelated' as const } };
+  function GorgonFrames({ base, fps = 2 }: { base: string; fps?: number }) {
+    const dur = `${1 / fps * 4}s`; // full cycle duration for 4 frames
+    const v = (active: number) => [0,1,2,3].map(i => i===active?1:0).join(';');
+    return (
+      <>
+        {[0,1,2,3].map(i => (
+          <image key={i} href={`/Gorgons/${base}_${i}.png`} x="0" y="0"
+            {...px} opacity={i===0?1:0}>
+            <animate attributeName="opacity" values={v(i)}
+              dur={dur} repeatCount="indefinite" calcMode="discrete"/>
+          </image>
+        ))}
+      </>
+    );
+  }
 
   return (
     <svg viewBox="0 0 700 260" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" className={className} style={style} aria-hidden="true">
@@ -393,25 +391,77 @@ function ChapterV({ className, style }: IllustrationProps) {
         </radialGradient>
       </defs>
       <image href="/illustrations/chapter5/bg.svg" x="0" y="0" width="700" height="260"/>
-      <ellipse cx="184" cy="155" rx="80" ry="60" fill="url(#c5-glow)"/>
-      {/* Medusa — slow serpentine undulation */}
-      <g transform="translate(40,130)">
-        <animateTransform attributeName="transform" type="translate"
-          values="0,0; 0,-4; 0,2; 0,-4; 0,0"
-          keyTimes="0; 0.25; 0.5; 0.75; 1"
-          calcMode="spline" keySplines="0.42,0,0.58,1; 0.42,0,0.58,1; 0.42,0,0.58,1; 0.42,0,0.58,1"
-          dur="4.0s" repeatCount="indefinite" additive="sum"/>
-        {medusa.map((r,i) => <rect key={i} x={r.x} y={r.y} width={r.width} height={r.height} fill={r.fill}/>)}
+      <ellipse cx="320" cy="165" rx="200" ry="90" fill="url(#c5-glow)"/>
+
+      {/* Stheno — sleeping, teal snake-hair */}
+      <g transform="translate(30,100)">
+        <Bob amp={3} dur="6s" delay="0s"/>
+        <GorgonFrames base="Stheno_Sleep"/>
       </g>
-      {/* Perseus — creeps toward Medusa, shield up, then freezes (holding breath) */}
+
+      {/* Euryale — sleeping, crimson snake-hair */}
+      <g transform="translate(170,100)">
+        <Bob amp={3} dur="7.5s" delay="2s"/>
+        <GorgonFrames base="Euryale_Sleep"/>
+      </g>
+
+      {/* Medusa — sleeping, then dead after the strike */}
+      <g transform="translate(310,100)">
+        {/* Sleeping — visible until kill */}
+        <g>
+          <animate attributeName="opacity" values="1;1;1;0;0;0;1"
+            keyTimes={kT} calcMode="discrete" dur={D} repeatCount="indefinite"/>
+          <Bob amp={2} dur="5s" delay="1s"/>
+          <GorgonFrames base="Medusa_Sleep"/>
+        </g>
+        {/* Dead — visible after kill */}
+        <g opacity="0">
+          <animate attributeName="opacity" values="0;0;0;1;1;1;0"
+            keyTimes={kT} calcMode="discrete" dur={D} repeatCount="indefinite"/>
+          <GorgonFrames base="Medusa_Dead"/>
+        </g>
+      </g>
+
+      {/* Perseus — Cap of Hades (nearly invisible), sneaks in, lunges to kill */}
       <g transform="translate(650,20) scale(-1,1)">
+        {/* Translate: sneak in → hold → retreat → exit */}
         <animateTransform attributeName="transform" type="translate"
-          values="0,0; 30,-2; 60,-2; 60,-2; 60,-2; 30,-1; 0,0"
-          keyTimes="0; 0.15; 0.3; 0.45; 0.6; 0.8; 1"
-          calcMode="spline" keySplines="0.3,0,0.7,1; 0.3,0,0.7,1; 0.42,0,0.58,1; 0.42,0,0.58,1; 0.42,0,0.58,1; 0.5,0,0.8,1"
-          dur="4.0s" repeatCount="indefinite" additive="sum"/>
-        <Rects rs={perseusSt}/>
+          values="0,0; 210,5; 220,5; 220,5; 220,5; 200,3; 0,0"
+          keyTimes={kT} calcMode="spline"
+          keySplines="0.3,0,0.5,1; 0.3,0,0.7,1; 0.42,0,0.58,1; 0.42,0,0.58,1; 0.42,0,0.58,1; 0.5,0,0.8,1"
+          dur={D} repeatCount="indefinite" additive="sum"/>
+        {/* Cap of Hades opacity: ghost-faint while sneaking, slightly more visible at strike */}
+        <animate attributeName="opacity"
+          values="0.12; 0.15; 0.42; 0.20; 0.12; 0; 0"
+          keyTimes={kT} calcMode="discrete" dur={D} repeatCount="indefinite"/>
+
+        {/* Sneak pose (side profile, crouched) — visible walk-in, hold, and retreat */}
+        <g>
+          <animate attributeName="opacity" values="1;1;0;0;1;0;0"
+            keyTimes={kT} calcMode="discrete" dur={D} repeatCount="indefinite"/>
+          <FrameAnim base="/Perseus/perseus_sneak_" w={96} h={128} fps={4}/>
+        </g>
+
+        {/* Slash / kill pose — visible at strike and post-kill */}
+        <g opacity="0">
+          <animate attributeName="opacity" values="0;0;1;1;0;0;0"
+            keyTimes={kT} calcMode="discrete" dur={D} repeatCount="indefinite"/>
+          <FrameAnim base="/Perseus/perseus_slash_" w={96} h={128} fps={8}/>
+        </g>
       </g>
+
+      {/* Strike flash — blood-red burst at the kill moment */}
+      <ellipse cx="405" cy="168" rx="28" ry="20" fill="#c82020" opacity="0">
+        <animate attributeName="opacity" values="0;0;0;0.85;0;0;0"
+          keyTimes="0;0.60;0.63;0.65;0.68;0.71;1"
+          calcMode="linear" dur={D} repeatCount="indefinite"/>
+      </ellipse>
+      <ellipse cx="405" cy="168" rx="13" ry="9" fill="#f0c040" opacity="0">
+        <animate attributeName="opacity" values="0;0;0;0.95;0;0;0"
+          keyTimes="0;0.62;0.64;0.65;0.67;0.70;1"
+          calcMode="linear" dur={D} repeatCount="indefinite"/>
+      </ellipse>
+
       <rect width="700" height="260" fill="url(#c5-vig)"/>
       <rect x="1" y="1" width="698" height="258" fill="none" stroke="#c9a84c" strokeWidth="0.8" strokeOpacity="0.3"/>
     </svg>
@@ -420,44 +470,6 @@ function ChapterV({ className, style }: IllustrationProps) {
 
 // ─── Chapter VI: The Flight Home ──────────────────────────────────────────
 function ChapterVI({ className, style }: IllustrationProps) {
-  const P = 4;
-  type R = { x:number; y:number; width:number; height:number; fill:string };
-  const vr = (vx:number, vy:number, vw:number, vh:number, fill:string): R =>
-    ({ x:vx*P, y:vy*P, width:vw*P, height:vh*P, fill });
-
-  const CAPE="#c41818", CAPE_D="#8a1010", PLUME="#700c0c";
-  const BRZ="#b87832", BRZ_H="#d4a450", BRZ_D="#7a5020";
-  const SKIN="#d49060", SKIN_D="#a86030", EYE="#18101e";
-  const TUN="#dcd4a4", BELT="#7a5028", LTHR="#5a3c22";
-  const WING="#e8e8f8", WING_D="#a8b0c0";
-
-  const sprite: R[] = [
-    vr(0, 4,18,1,CAPE), vr(0, 5,20,1,CAPE), vr(0, 6,22,1,CAPE),
-    vr(0, 7,24,1,CAPE), vr(0, 8,25,1,CAPE), vr(0, 9,26,1,CAPE),
-    vr(0,10,26,1,CAPE), vr(0,11,24,1,CAPE), vr(0,12,21,1,CAPE),
-    vr(0,13,17,1,CAPE_D), vr(0,14,12,1,CAPE_D),
-    vr(0,15, 7,1,CAPE_D), vr(0,16, 3,1,CAPE_D),
-    vr(6,0,28,1,PLUME), vr(8,1,24,1,PLUME), vr(10,2,20,1,PLUME), vr(12,3,14,1,PLUME),
-    vr(0,11,6,1,WING), vr(0,12,5,1,WING), vr(0,13,4,1,WING), vr(1,14,3,1,WING_D),
-    vr(4,10,14,2,SKIN),
-    vr(3,12,12,3,LTHR),
-    vr(8, 8,24,1,TUN), vr(8, 9,24,2,TUN), vr(8,11,20,1,TUN),
-    vr(10,10,20,1,BELT),
-    vr(33,3, 9,1,BRZ_H),
-    vr(31,4,11,1,BRZ), vr(29,5,13,1,BRZ), vr(27,6,15,1,BRZ),
-    vr(26,7,16,1,BRZ), vr(26,8,16,1,BRZ),
-    vr(26, 9,7,1,BRZ), vr(26,10,7,1,BRZ), vr(26,11,7,1,BRZ),
-    vr(26,12,7,1,BRZ), vr(26,13,5,1,BRZ_D), vr(27,14,3,1,BRZ_D),
-    vr(33,3,8,1,BRZ), vr(33,4,8,1,BRZ), vr(33,5,8,1,BRZ),
-    vr(33,6,8,1,BRZ), vr(33,7,8,1,BRZ), vr(33,8,8,1,BRZ),
-    vr(33, 9,8,1,SKIN), vr(33,10,8,1,SKIN), vr(33,11,8,1,SKIN),
-    vr(33,12,7,1,SKIN), vr(33,13,5,1,SKIN), vr(34,14,3,1,SKIN_D),
-    vr(38,10,1,1,EYE),
-    vr(40,11,1,1,SKIN), vr(40,12,1,1,SKIN),
-    vr(41, 9,8,1,SKIN), vr(41,10,8,1,SKIN), vr(41,11,7,1,SKIN),
-    vr(45, 8,4,1,SKIN_D), vr(45, 9,4,2,SKIN_D), vr(46,11,3,1,SKIN_D),
-  ];
-
   const stars: { x:number; y:number; dur:string; del:string; op:number; gold?:boolean; dim?:boolean; }[] = [
     { x:22,  y:6,  dur:"2.1s", del:"0.0s", op:0.88 },
     { x:75,  y:20, dur:"3.3s", del:"0.7s", op:0.82 },
@@ -557,7 +569,7 @@ function ChapterVI({ className, style }: IllustrationProps) {
       <g>
         <animateTransform
           attributeName="transform" type="translate"
-          values="-220,44; 40,58; 200,42; 360,26; 510,48; 650,34; 920,42"
+          values="-220,12; 40,26; 200,10; 360,-6; 510,16; 650,2; 920,10"
           keyTimes="0; 0.15; 0.30; 0.45; 0.60; 0.75; 1"
           calcMode="spline"
           keySplines="0.42,0,0.58,1; 0.42,0,0.58,1; 0.42,0,0.58,1; 0.42,0,0.58,1; 0.42,0,0.58,1; 0.42,0,0.58,1"
@@ -567,13 +579,13 @@ function ChapterVI({ className, style }: IllustrationProps) {
         <rect x={-130} y={26} width={130} height={32} fill="#c9a84c" opacity="0.09"/>
         <rect x={-70}  y={30} width={70}  height={20} fill="#dbd060" opacity="0.15"/>
         <rect x={-30}  y={32} width={30}  height={14} fill="#dbd060" opacity="0.22"/>
-        <g transform="translate(-44,0)" opacity={0.20}>
-          {sprite.map((r,i) => <rect key={i} x={r.x} y={r.y} width={r.width} height={r.height} fill={r.fill}/>)}
-        </g>
         <g transform="translate(-84,0)" opacity={0.08}>
-          {sprite.map((r,i) => <rect key={i} x={r.x} y={r.y} width={r.width} height={r.height} fill={r.fill}/>)}
+          <FrameAnim base="/Perseus/perseus_flight_" w={96} h={128} fps={8}/>
         </g>
-        {sprite.map((r,i) => <rect key={i} x={r.x} y={r.y} width={r.width} height={r.height} fill={r.fill}/>)}
+        <g transform="translate(-44,0)" opacity={0.20}>
+          <FrameAnim base="/Perseus/perseus_flight_" w={96} h={128} fps={8}/>
+        </g>
+        <FrameAnim base="/Perseus/perseus_flight_" w={96} h={128} fps={8}/>
       </g>
 
       <rect x="0" y="198" width="700" height="62" fill="#060c18"/>
@@ -604,24 +616,11 @@ function ChapterVI({ className, style }: IllustrationProps) {
 // ─── Chapter VII: Andromeda ───────────────────────────────────────────────
 function ChapterVII({ className, style }: IllustrationProps) {
   const vr = mkVr(4);
-  const SK="#d49060",SK3="#dab07a",EY="#18101e";
+  const SK="#d49060",EY="#18101e";
   const BR="#b87832",BH="#d4a450";
   const TN="#dcd4a4",BL="#7a5028",LT="#5a3c22";
   const CP="#c41818",CD="#8a1010",PL="#700c0c";
-  const WH="#e8e8f8",WG="#d8d0f0",GD="#d4a428",IR="#6a7080";
-
-  const andromeda: PR[] = [
-    vr(3,0,2,2,IR), vr(9,0,2,2,IR),
-    vr(3,0,2,6,IR), vr(9,0,2,6,IR),
-    vr(3,2,2,8,SK3), vr(9,2,2,8,SK3),
-    vr(4,9,6,6,SK3), vr(7,11,1,1,EY), vr(8,12,1,1,SK3),
-    vr(3,8,8,3,LT), vr(3,9,2,4,LT), vr(11,9,2,4,LT),
-    vr(5,15,4,2,SK3),
-    vr(3,17,8,10,WG), vr(3,17,8,1,WH),
-    vr(4,24,6,2,GD),
-    vr(2,27,10,6,WG),
-    vr(4,33,3,2,SK3), vr(8,33,3,2,SK3),
-  ];
+  const WH="#e8e8f8";
 
   const perseusSoar: PR[] = [
     vr(0,0,5,2,PL),
@@ -653,7 +652,19 @@ function ChapterVII({ className, style }: IllustrationProps) {
           keyTimes="0; 0.3; 0.5; 0.7; 1"
           calcMode="spline" keySplines="0.42,0,0.58,1; 0.42,0,0.58,1; 0.42,0,0.58,1; 0.42,0,0.58,1"
           dur="2.0s" repeatCount="indefinite" additive="sum"/>
-        <Rects rs={andromeda}/>
+        {/* 8-bit rock */}
+        <rect x={16} y={92} width={64} height={4} fill="#2a2820"/>
+        <rect x={12} y={96} width={72} height={8} fill="#484440"/>
+        <rect x={10} y={104} width={76} height={8} fill="#585450"/>
+        <rect x={12} y={112} width={72} height={8} fill="#484440"/>
+        <rect x={16} y={120} width={64} height={6} fill="#383430"/>
+        <rect x={20} y={126} width={56} height={4} fill="#282420"/>
+        <rect x={16} y={92} width={20} height={2} fill="#807868"/>
+        <rect x={12} y={96} width={10} height={2} fill="#706860"/>
+        <rect x={44} y={96} width={4} height={14} fill="#2a2820"/>
+        <rect x={62} y={100} width={4} height={10} fill="#383430"/>
+        {/* Andromeda sprite */}
+        <FrameAnim base="/Andromeda/andromeda_chained_" count={2} w={96} h={128} fps={2}/>
       </g>
       {/* Perseus — swoops hard toward Andromeda to rescue her, then circles back */}
       <g transform="translate(640,10) scale(-1,1)">
@@ -672,41 +683,9 @@ function ChapterVII({ className, style }: IllustrationProps) {
 
 // ─── Chapter VIII: Return to Seriphos ─────────────────────────────────────
 function ChapterVIII({ className, style }: IllustrationProps) {
-  const vr = mkVr(4);
-  const SK="#d49060",SK2="#b07848",EY="#18101e";
-  const BR="#b87832",BH="#d4a450";
-  const TN="#dcd4a4",BL="#7a5028",LT="#5a3c22";
-  const CP="#c41818",CD="#8a1010",PL="#700c0c";
-  const WH="#e8e8f8",GD="#d4a428",PP="#7030b0",GR="#908880",ST="#9aa8b0";
-
-  const perseusTriumph: PR[] = [
-    vr(0,0,5,2,PL),
-    vr(3,0,8,2,BH), vr(2,1,10,3,BR), vr(2,4,2,5,BR),
-    vr(4,1,6,7,SK), vr(8,3,1,1,EY), vr(9,5,1,2,SK),
-    vr(5,8,4,2,SK),
-    vr(0,4,2,22,CP), vr(0,26,2,3,CD),
-    vr(3,10,8,9,TN), vr(3,16,8,2,BL),
-    vr(1,2,2,10,SK),
-    vr(0,0,4,4,GD), vr(0,0,4,1,BH), vr(1,4,2,1,GD),
-    vr(11,10,2,8,TN),
-    vr(4,20,2,9,SK), vr(8,20,2,9,SK),
-    vr(3,29,3,2,LT), vr(7,29,3,2,LT),
-    vr(2,26,2,3,WH), vr(10,26,2,3,WH),
-  ];
-
-  const polydectesStone: PR[] = [
-    vr(3,0,8,1,ST), vr(3,0,2,3,ST), vr(6,0,2,3,ST), vr(10,0,2,3,ST),
-    vr(4,2,6,6,ST), vr(8,4,1,1,EY), vr(9,5,1,2,ST),
-    vr(4,7,5,2,GR),
-    vr(5,9,4,2,ST),
-    vr(2,11,10,10,PP), vr(2,11,10,1,ST),
-    vr(2,18,10,2,ST),
-    vr(0,11,2,9,ST), vr(12,11,2,9,ST),
-    vr(12,7,2,5,ST),
-    vr(4,21,2,8,ST), vr(8,21,2,8,ST),
-    vr(3,29,4,2,ST), vr(7,29,4,2,ST),
-  ];
-
+  const D = "10s";
+  // 0–0.25 (0–2.5s): idle | 0.25–0.50 (2.5–5s): pull head | 0.50–0.65 (5–6.5s): stone transition | 0.65–0.95 (6.5–9.5s): stone hold | 0.95–1 reset
+  const kT = "0; 0.25; 0.50; 0.65; 0.95; 1";
   return (
     <svg viewBox="0 0 700 260" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" className={className} style={style} aria-hidden="true">
       <defs>
@@ -721,27 +700,56 @@ function ChapterVIII({ className, style }: IllustrationProps) {
       </defs>
       <image href="/illustrations/chapter8/bg.svg" x="0" y="0" width="700" height="260"/>
       <ellipse cx="164" cy="120" rx="130" ry="110" fill="url(#c8-bag)"/>
-      {/* Perseus — advances on Polydectes brandishing kibisis, then steps back */}
+
+      {/* Perseus — stays put; idle then slowly pulls out Medusa's head */}
       <g transform="translate(50,20)">
-        <animateTransform attributeName="transform" type="translate"
-          values="0,0; 45,-10; 45,-10; 0,0"
-          keyTimes="0; 0.3; 0.55; 1"
-          calcMode="spline" keySplines="0.3,0,0.5,1; 0.42,0,0.58,1; 0.5,0,0.8,1"
-          dur="2.8s" repeatCount="indefinite" additive="sum"/>
-        <Rects rs={perseusTriumph}/>
-      </g>
-      {/* Polydectes — recoils backward as Perseus approaches, trembling and fading to stone */}
-      <g transform="translate(650,20) scale(-1,1)">
-        <animateTransform attributeName="transform" type="translate"
-          values="0,0; -30,5; -30,5; 0,0"
-          keyTimes="0; 0.3; 0.55; 1"
-          calcMode="spline" keySplines="0.3,0,0.5,1; 0.42,0,0.58,1; 0.5,0,0.8,1"
-          dur="2.8s" begin="0.1s" repeatCount="indefinite" additive="sum"/>
+        {/* Idle with all items (0–2.5s and 9.5–10s) */}
         <g>
-          <animate attributeName="opacity" values="1;1;0.5;0.3;1" keyTimes="0;0.3;0.45;0.55;1" dur="2.8s" repeatCount="indefinite"/>
-          <Rects rs={polydectesStone}/>
+          <animate attributeName="opacity" values="1;0;0;0;1;1" keyTimes={kT} calcMode="discrete" dur={D} repeatCount="indefinite"/>
+          <FrameAnim base="/Perseus/perseus_idle_all_" frames={[1,2,4]} w={96} h={128} fps={6}/>
+        </g>
+        {/* Pull head — frames 01→05 each shown for 0.8s, plays once (no loop back) */}
+        {([
+          {f:"01", a:"0;1;0;0;0;0;0;0;0"},
+          {f:"02", a:"0;0;1;0;0;0;0;0;0"},
+          {f:"03", a:"0;0;0;1;0;0;0;0;0"},
+          {f:"04", a:"0;0;0;0;1;0;0;0;0"},
+          {f:"05", a:"0;0;0;0;0;1;0;0;0"},
+        ] as {f:string; a:string}[]).map(({f, a}) => (
+          <image key={f} href={`/Perseus/perseus_pull_head_${f}.png`}
+            x={0} y={0} width={96} height={128} opacity="0" style={{imageRendering:"pixelated"}}>
+            <animate attributeName="opacity" values={a}
+              keyTimes="0;0.25;0.33;0.41;0.49;0.57;0.65;0.95;1"
+              calcMode="discrete" dur={D} repeatCount="indefinite"/>
+          </image>
+        ))}
+        {/* Frame 05 held still (6.5–9.5s = 3s hold, matches Polydectes stone hold) */}
+        <image href="/Perseus/perseus_pull_head_05.png" x={0} y={0} width={96} height={128} opacity="0" style={{imageRendering:"pixelated"}}>
+          <animate attributeName="opacity" values="0;0;0;0;0;0;1;0;0"
+            keyTimes="0;0.25;0.33;0.41;0.49;0.57;0.65;0.95;1"
+            calcMode="discrete" dur={D} repeatCount="indefinite"/>
+        </image>
+      </g>
+
+      {/* Polydectes — idle, then turns to stone, then held as stone for 3s */}
+      <g transform="translate(650,20) scale(-1,1)">
+        {/* Idle (0–5s and 9.5–10s) */}
+        <g>
+          <animate attributeName="opacity" values="1;1;0;0;1;1" keyTimes={kT} calcMode="discrete" dur={D} repeatCount="indefinite"/>
+          <FrameAnim base="/Polydectes/polydectes_idle_" w={96} h={128} fps={6}/>
+        </g>
+        {/* Stone transformation (5–6.5s) */}
+        <g>
+          <animate attributeName="opacity" values="0;0;1;0;0;0" keyTimes={kT} calcMode="discrete" dur={D} repeatCount="indefinite"/>
+          <FrameAnim base="/Polydectes/polydectes_stone_" count={5} w={96} h={128} fps={4}/>
+        </g>
+        {/* Stone held — last frame, 3 seconds (6.5–9.5s) */}
+        <g>
+          <animate attributeName="opacity" values="0;0;0;1;0;0" keyTimes={kT} calcMode="discrete" dur={D} repeatCount="indefinite"/>
+          <image href="/Polydectes/polydectes_stone_05.png" x={0} y={0} width={96} height={128} style={{imageRendering:"pixelated"}}/>
         </g>
       </g>
+
       <rect width="700" height="260" fill="url(#c8-vig)"/>
       <rect x="1" y="1" width="698" height="258" fill="none" stroke="#c9a84c" strokeWidth="0.8" strokeOpacity="0.3"/>
     </svg>

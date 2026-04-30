@@ -89,7 +89,7 @@ export default function StoryRenderer() {
               <div className="mt-10 flex flex-col gap-3">
                 {currentNode.choices.map((choice, i) => (
                   <ChoiceButton
-                    key={choice.next}
+                    key={`${currentNode.id}-${i}`}
                     text={choice.text}
                     onClick={() => navigate(choice.next)}
                     delay={600 + i * 150}
