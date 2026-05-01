@@ -1171,9 +1171,9 @@ function ChapterVII({ className, style }: IllustrationProps) {
 
 // ─── Chapter VIII: Return to Seriphos ─────────────────────────────────────
 function ChapterVIII({ className, style }: IllustrationProps) {
-  const D = "10s";
-  // 0–0.25 (0–2.5s): idle | 0.25–0.50 (2.5–5s): pull head | 0.50–0.65 (5–6.5s): stone transition | 0.65–0.95 (6.5–9.5s): stone hold | 0.95–1 reset
-  const kT = "0; 0.25; 0.50; 0.65; 0.95; 1";
+  const D = "6s";
+  // 0–0.75s (0–0.125): both idle | 0.75–4.5s (0.125–0.625): pull+stone frames 01–05 (5×0.75s) | 4.5–6s (0.625–1): 1.5s hold then loop snap
+  const kT = "0; 0.125; 0.225; 0.325; 0.425; 0.525; 0.625; 1";
   return (
     <svg viewBox="0 0 700 260" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" className={className} style={style} aria-hidden="true">
       <defs>
@@ -1247,53 +1247,50 @@ function ChapterVIII({ className, style }: IllustrationProps) {
 
       <ellipse cx="164" cy="120" rx="130" ry="110" fill="url(#c8-bag)"/>
 
-      {/* Perseus — stays put; idle then slowly pulls out Medusa's head */}
+      {/* Perseus — idle then pulls out Medusa's head in sync with Polydectes turning stone */}
       <g transform="translate(50,20)">
-        {/* Idle with all items (0–2.5s and 9.5–10s) */}
+        {/* Idle (0–0.75s at loop start only; snaps back simultaneously with Polydectes at loop restart) */}
         <g>
-          <animate attributeName="opacity" values="1;0;0;0;1;1" keyTimes={kT} calcMode="discrete" dur={D} repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="1;0;0;0;0;0;0;0" keyTimes={kT} calcMode="discrete" dur={D} repeatCount="indefinite"/>
           <FrameAnim base="/Perseus/perseus_idle_all_" frames={[1,2,4]} w={96} h={128} fps={6}/>
         </g>
-        {/* Pull head — frames 01→05 each shown for 0.8s, plays once (no loop back) */}
-        {([
-          {f:"01", a:"0;1;0;0;0;0;0;0;0"},
-          {f:"02", a:"0;0;1;0;0;0;0;0;0"},
-          {f:"03", a:"0;0;0;1;0;0;0;0;0"},
-          {f:"04", a:"0;0;0;0;1;0;0;0;0"},
-          {f:"05", a:"0;0;0;0;0;1;0;0;0"},
-        ] as {f:string; a:string}[]).map(({f, a}) => (
-          <image key={f} href={`/Perseus/perseus_pull_head_${f}.png`}
-            x={0} y={0} width={96} height={128} opacity="0" style={{imageRendering:"pixelated"}}>
-            <animate attributeName="opacity" values={a}
-              keyTimes="0;0.25;0.33;0.41;0.49;0.57;0.65;0.95;1"
-              calcMode="discrete" dur={D} repeatCount="indefinite"/>
-          </image>
-        ))}
-        {/* Frame 05 held still (6.5–9.5s = 3s hold, matches Polydectes stone hold) */}
+        {/* Pull head frames 01–05 — each 0.75s, synced with Polydectes stone frames */}
+        {(["01","02","03","04","05"] as const).map((f, i) => {
+          const v = Array(8).fill("0"); v[i + 1] = "1";
+          return (
+            <image key={f} href={`/Perseus/perseus_pull_head_${f}.png`}
+              x={0} y={0} width={96} height={128} opacity="0" style={{imageRendering:"pixelated"}}>
+              <animate attributeName="opacity" values={v.join(";")} keyTimes={kT} calcMode="discrete" dur={D} repeatCount="indefinite"/>
+            </image>
+          );
+        })}
+        {/* Pull head 05 held until loop end — snaps to idle simultaneously with Polydectes */}
         <image href="/Perseus/perseus_pull_head_05.png" x={0} y={0} width={96} height={128} opacity="0" style={{imageRendering:"pixelated"}}>
-          <animate attributeName="opacity" values="0;0;0;0;0;0;1;0;0"
-            keyTimes="0;0.25;0.33;0.41;0.49;0.57;0.65;0.95;1"
-            calcMode="discrete" dur={D} repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="0;0;0;0;0;0;1;1" keyTimes={kT} calcMode="discrete" dur={D} repeatCount="indefinite"/>
         </image>
       </g>
 
-      {/* Polydectes — idle, then turns to stone, then held as stone for 3s */}
+      {/* Polydectes — synced with Perseus: idle → stone frames 01–05 → stone held until loop snap */}
       <g transform="translate(650,20) scale(-1,1)">
-        {/* Idle (0–5s and 9.5–10s) */}
+        {/* Idle (0–0.75s at loop start only; snaps back simultaneously with Perseus at loop restart) */}
         <g>
-          <animate attributeName="opacity" values="1;1;0;0;1;1" keyTimes={kT} calcMode="discrete" dur={D} repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="1;0;0;0;0;0;0;0" keyTimes={kT} calcMode="discrete" dur={D} repeatCount="indefinite"/>
           <FrameAnim base="/Polydectes/polydectes_idle_" w={96} h={128} fps={6}/>
         </g>
-        {/* Stone transformation (5–6.5s) */}
-        <g>
-          <animate attributeName="opacity" values="0;0;1;0;0;0" keyTimes={kT} calcMode="discrete" dur={D} repeatCount="indefinite"/>
-          <FrameAnim base="/Polydectes/polydectes_stone_" count={5} w={96} h={128} fps={4}/>
-        </g>
-        {/* Stone held — last frame, 3 seconds (6.5–9.5s) */}
-        <g>
-          <animate attributeName="opacity" values="0;0;0;1;0;0" keyTimes={kT} calcMode="discrete" dur={D} repeatCount="indefinite"/>
-          <image href="/Polydectes/polydectes_stone_05.png" x={0} y={0} width={96} height={128} style={{imageRendering:"pixelated"}}/>
-        </g>
+        {/* Stone frames 01–05 — each 0.75s, synced with Perseus pull frames */}
+        {(["01","02","03","04","05"] as const).map((f, i) => {
+          const v = Array(8).fill("0"); v[i + 1] = "1";
+          return (
+            <image key={f} href={`/Polydectes/polydectes_stone_${f}.png`}
+              x={0} y={0} width={96} height={128} opacity="0" style={{imageRendering:"pixelated"}}>
+              <animate attributeName="opacity" values={v.join(";")} keyTimes={kT} calcMode="discrete" dur={D} repeatCount="indefinite"/>
+            </image>
+          );
+        })}
+        {/* Stone 05 held until loop end — snaps to idle simultaneously with Perseus */}
+        <image href="/Polydectes/polydectes_stone_05.png" x={0} y={0} width={96} height={128} opacity="0" style={{imageRendering:"pixelated"}}>
+          <animate attributeName="opacity" values="0;0;0;0;0;0;1;1" keyTimes={kT} calcMode="discrete" dur={D} repeatCount="indefinite"/>
+        </image>
       </g>
 
       <rect width="700" height="260" fill="url(#c8-vig)"/>

@@ -76,7 +76,7 @@ export default function Home() {
         >
           The myth has been told a thousand times: by Hesiod, Pindar,
           Apollodorus, and Ovid. Each telling reflects a different truth. In this
-          retelling, the path is yours to choose. Different sources, different
+          story, the path is yours to choose. Different sources, different
           readings, different meanings.
         </p>
 
