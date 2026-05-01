@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 interface Particle {
   id: number;
@@ -27,7 +27,11 @@ function createParticles(count: number): Particle[] {
 }
 
 export default function ParticleBackground() {
-  const [particles] = useState<Particle[]>(() => createParticles(40));
+  const [particles, setParticles] = useState<Particle[]>([]);
+
+  useEffect(() => {
+    setParticles(createParticles(40));
+  }, []);
 
   return (
     <div
@@ -38,7 +42,7 @@ export default function ParticleBackground() {
       {particles.map((p) => (
         <div
           key={p.id}
-          className="absolute rounded-full bg-[#c9a84c]"
+          className="absolute rounded-full bg-[#2a8870]"
           style={{
             left: p.left,
             top: p.top,

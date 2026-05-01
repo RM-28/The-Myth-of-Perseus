@@ -66,7 +66,7 @@ function ChapterI({ className, style }: IllustrationProps) {
         `}</style>
         <radialGradient id="c1-vig" cx="50%" cy="50%" r="65%">
           <stop offset="0%" stopColor="transparent"/>
-          <stop offset="100%" stopColor="#020108" stopOpacity="0.93"/>
+          <stop offset="100%" stopColor="#140108" stopOpacity="0.95"/>
         </radialGradient>
       </defs>
 
@@ -92,13 +92,13 @@ function ChapterI({ className, style }: IllustrationProps) {
       {/* ── Purple banner (sways slightly) ── */}
       <rect x={240} y={0} width={220} height={104} fill="#2a1040" opacity="0.8"/>
       <rect x={244} y={0} width={212} height={100} fill="#321248" opacity="0.6"/>
-      <rect x={290} y={82} width={120} height={18} fill="#c9a84c" opacity="0.12"/>
+      <rect x={290} y={82} width={120} height={18} fill="#2a8870" opacity="0.12"/>
       <g>
         <animateTransform attributeName="transform" type="translate"
           values="0,0; 3,2; 0,0; -2,1; 0,0" keyTimes="0;0.25;0.5;0.75;1"
           calcMode="spline" keySplines="0.42,0,0.58,1;0.42,0,0.58,1;0.42,0,0.58,1;0.42,0,0.58,1"
           dur="5s" repeatCount="indefinite"/>
-        <rect x={244} y={0} width={212} height={4} fill="#c9a84c" opacity="0.45"/>
+        <rect x={244} y={0} width={212} height={4} fill="#2a8870" opacity="0.45"/>
       </g>
 
       {/* ── Feast table ── */}
@@ -140,7 +140,6 @@ function ChapterI({ className, style }: IllustrationProps) {
             <rect x={cx+6} y={120} width={2} height={10} fill="#c83808"/>
             <rect x={cx+7} y={118} width={2} height={6}  fill="#e07018"/>
           </g>
-          <rect x={cx-6} y={118} width={26} height={42} fill="#d06010" opacity="0.07" style={{animation:`c1-candle 0.55s ease-in-out ${idx*0.17}s infinite`}}/>
         </g>
       ))}
       {/* Perseus — holds ground, slight uneasy recoil */}
@@ -160,7 +159,7 @@ function ChapterI({ className, style }: IllustrationProps) {
         <FrameAnim base="/Polydectes/polydectes_idle_" w={96} h={128} fps={6}/>
       </g>
       <rect width="700" height="260" fill="url(#c1-vig)"/>
-      <rect x="1" y="1" width="698" height="258" fill="none" stroke="#c9a84c" strokeWidth="0.8" strokeOpacity="0.3"/>
+      <rect x="1" y="1" width="698" height="258" fill="none" stroke="#7a1818" strokeWidth="0.8" strokeOpacity="0.45"/>
     </svg>
   );
 }
@@ -186,10 +185,10 @@ function ChapterII({ className, style }: IllustrationProps) {
         `}</style>
         <radialGradient id="c2-vig" cx="50%" cy="50%" r="65%">
           <stop offset="0%" stopColor="transparent"/>
-          <stop offset="100%" stopColor="#020208" stopOpacity="0.9"/>
+          <stop offset="100%" stopColor="#010410" stopOpacity="0.92"/>
         </radialGradient>
         <radialGradient id="c2-glow" cx="50%" cy="50%" r="60%">
-          <stop offset="0%" stopColor="#d4a428" stopOpacity="0.18"/>
+          <stop offset="0%" stopColor="#b0c8f8" stopOpacity="0.20"/>
           <stop offset="100%" stopColor="transparent"/>
         </radialGradient>
       </defs>
@@ -201,7 +200,7 @@ function ChapterII({ className, style }: IllustrationProps) {
 
       {/* ── Stars ── */}
       {c2stars.map((s,i)=>(
-        <rect key={i} x={s.x} y={s.y} width={2} height={2} fill={i<7?"#e8dfc0":"#c9a84c"} opacity={s.op}
+        <rect key={i} x={s.x} y={s.y} width={2} height={2} fill={i<7?"#e8dfc0":"#2a8870"} opacity={s.op}
           style={{animation:`c2-twinkle ${s.dur} ease-in-out ${s.del} infinite`}}/>
       ))}
 
@@ -223,19 +222,40 @@ function ChapterII({ className, style }: IllustrationProps) {
         </g>
       ))}
 
-      {/* ── Distant hills ── */}
-      {[[0,142,130,22],[50,134,80,30],[80,128,60,36],[200,130,80,34],[350,126,70,38],[490,120,80,44],[600,136,100,28]].map(([x,y,w,h],i)=>
-        <rect key={i} x={x as number} y={y as number} width={w as number} height={h as number} fill={i%2===0?"#0e1120":"#101322"}/>)}
-
-      {/* ── Rocky ground ── */}
-      <rect x={0} y={168} width={700} height={92} fill="#0a0c18"/>
-      {Array.from({length:6},(_,i)=><rect key={i} x={0} y={168+i*14} width={700} height={12} fill={i%2===0?"#0c1020":"#0a0e1c"}/>)}
-      {[[20,172,28,10],[90,176,18,8],[180,170,24,12],[350,168,32,14],[540,170,30,12],[636,174,26,10]].map(([x,y,w,h],i)=>(
-        <rect key={i} x={x as number} y={y as number} width={w as number} height={h as number} fill="#141828"/>
+      {/* ── Mount Olympus cloud banks ── */}
+      {([
+        {x:0,   y:138, w:130, h:30}, {x:90,  y:128, w:110, h:40},
+        {x:175, y:134, w:140, h:34}, {x:290, y:122, w:120, h:46},
+        {x:385, y:130, w:130, h:38}, {x:490, y:116, w:130, h:52},
+        {x:598, y:126, w:140, h:42},
+      ] as {x:number;y:number;w:number;h:number}[]).map(({x,y,w,h},i)=>(
+        <rect key={i} x={x} y={y} width={w} height={h} fill={i%2===0?"#141c2c":"#101828"}/>
       ))}
+      {/* Cloud highlights — lighter tops */}
+      {([
+        {x:10,  y:134, w:110, h:6}, {x:104, y:124, w:90,  h:7},
+        {x:190, y:130, w:116, h:6}, {x:306, y:118, w:98,  h:7},
+        {x:400, y:126, w:106, h:6}, {x:504, y:112, w:106, h:7},
+        {x:614, y:122, w:116, h:6},
+      ] as {x:number;y:number;w:number;h:number}[]).map(({x,y,w,h},i)=>(
+        <rect key={i} x={x} y={y} width={w} height={h} fill={i%2===0?"#1c2438":"#1a2236"} opacity="0.8"/>
+      ))}
+      {/* Cloud floor — solid Olympus mist base */}
+      <rect x={0} y={158} width={700} height={102} fill="#0c1220"/>
+      {Array.from({length:6},(_,i)=><rect key={i} x={0} y={158+i*12} width={700} height={10} fill={i%2===0?"#0e1422":"#0c121e"}/>)}
+      {/* Divine silver-blue light shafts breaking through clouds */}
+      <rect x={240} y={118} width={44} height={52} fill="#8090c0" opacity="0.018">
+        <animate attributeName="opacity" values="0.018;0.040;0.018" dur="4.2s" repeatCount="indefinite"/>
+      </rect>
+      <rect x={400} y={112} width={54} height={58} fill="#7080b8" opacity="0.014">
+        <animate attributeName="opacity" values="0.014;0.032;0.014" dur="5.0s" begin="1.4s" repeatCount="indefinite"/>
+      </rect>
+      <rect x={320} y={124} width={30} height={44} fill="#9098c8" opacity="0.010">
+        <animate attributeName="opacity" values="0.010;0.024;0.010" dur="3.8s" begin="2.2s" repeatCount="indefinite"/>
+      </rect>
 
       {/* ── Divine golden glow left (Hermes) — pulsing ── */}
-      <rect x={0} y={0} width={160} height={260} fill="#c9a84c" opacity="0.025">
+      <rect x={0} y={0} width={160} height={260} fill="#2a8870" opacity="0.025">
         <animate attributeName="opacity" values="0.025;0.055;0.025" dur="2.8s" repeatCount="indefinite"/>
       </rect>
       {/* ── Divine silver-blue glow right (Athena) — pulsing ── */}
@@ -263,7 +283,7 @@ function ChapterII({ className, style }: IllustrationProps) {
         <FrameAnim base="/Athena/athena_idle_" pad={0} w={96} h={128} fps={6}/>
       </g>
       <rect width="700" height="260" fill="url(#c2-vig)"/>
-      <rect x="1" y="1" width="698" height="258" fill="none" stroke="#c9a84c" strokeWidth="0.8" strokeOpacity="0.3"/>
+      <rect x="1" y="1" width="698" height="258" fill="none" stroke="#8090c8" strokeWidth="0.8" strokeOpacity="0.45"/>
     </svg>
   );
 }
@@ -294,7 +314,7 @@ function ChapterIII({ className, style }: IllustrationProps) {
       <defs>
         <radialGradient id="c3-vig" cx="50%" cy="50%" r="65%">
           <stop offset="0%" stopColor="transparent"/>
-          <stop offset="100%" stopColor="#020208" stopOpacity="0.92"/>
+          <stop offset="100%" stopColor="#060810" stopOpacity="0.93"/>
         </radialGradient>
       </defs>
 
@@ -366,7 +386,7 @@ function ChapterIII({ className, style }: IllustrationProps) {
       </g>
 
       <rect width="700" height="260" fill="url(#c3-vig)"/>
-      <rect x="1" y="1" width="698" height="258" fill="none" stroke="#c9a84c" strokeWidth="0.8" strokeOpacity="0.3"/>
+      <rect x="1" y="1" width="698" height="258" fill="none" stroke="#606878" strokeWidth="0.8" strokeOpacity="0.45"/>
     </svg>
   );
 }
@@ -389,49 +409,81 @@ function ChapterIV({ className, style }: IllustrationProps) {
       <defs>
         <radialGradient id="c4-vig" cx="50%" cy="50%" r="65%">
           <stop offset="0%" stopColor="transparent"/>
-          <stop offset="100%" stopColor="#020208" stopOpacity="0.9"/>
+          <stop offset="100%" stopColor="#020810" stopOpacity="0.92"/>
         </radialGradient>
       </defs>
 
-      {/* ── Deep northern night sky ── */}
-      <rect width="700" height="260" fill="#060810"/>
-      {[[0,30,"#040608"],[30,50,"#060810"],[80,50,"#070912"],[130,40,"#090b14"]].map(([y,h,c],i)=>
+      {/* ── Styx underworld cave ── */}
+      <rect width="700" height="260" fill="#030408"/>
+      {[[0,20,"#060810"],[20,18,"#070912"],[38,16,"#080a0e"],[54,12,"#090b10"]].map(([y,h,c],i)=>
         <rect key={i} x={0} y={y as number} width={700} height={h as number} fill={c as string}/>)}
+      <defs><style>{`@keyframes c4-tw{0%,100%{opacity:0.55}50%{opacity:0.08}} @keyframes c4-glow{0%,100%{opacity:0.06}50%{opacity:0.16}} @keyframes c4-mist{0%{transform:translateX(-220px);opacity:0}12%{opacity:0.45}88%{opacity:0.45}100%{transform:translateX(920px);opacity:0}}`}</style></defs>
 
-      {/* ── Northern stars (twinkling) ── */}
-      <defs><style>{`@keyframes c4-tw{0%,100%{opacity:1}50%{opacity:0.08}} @keyframes c4-aur{0%,100%{opacity:0.28}50%{opacity:0.46}} @keyframes c4-snow{0%{transform:translateY(-8px);opacity:0}15%{opacity:0.7}85%{opacity:0.7}100%{transform:translateY(270px);opacity:0}}`}</style></defs>
-      {[[30,6,0.82],[90,18,0.78],[155,10,0.85],[300,20,0.75],[390,8,0.82],[460,14,0.78],[538,6,0.85],[612,18,0.80],[60,38,0.52],[178,30,0.48],[340,44,0.55],[490,36,0.50],[620,42,0.48]].map(([x,y,op],i)=>(
-        <rect key={i} x={x} y={y} width={2} height={2} fill={i<8?"#ddd8c0":"#c9a84c"} opacity={op}
-          style={{animation:`c4-tw ${1.7+i*0.28}s ease-in-out ${i*0.42}s infinite`}}/>
+      {/* ── Stalactites hanging from cave ceiling ── */}
+      {([
+        {x:10,  w:20, h:40}, {x:55,  w:10, h:26}, {x:105, w:16, h:34},
+        {x:160, w:8,  h:20}, {x:205, w:22, h:46}, {x:268, w:12, h:30},
+        {x:338, w:18, h:38}, {x:400, w:10, h:24}, {x:450, w:20, h:42},
+        {x:508, w:14, h:30}, {x:562, w:8,  h:20}, {x:608, w:18, h:36},
+        {x:660, w:12, h:26},
+      ] as {x:number;w:number;h:number}[]).map(({x,w,h},i)=>(
+        <g key={i}>
+          <rect x={x} y={0} width={w} height={h} fill={i%2===0?"#0c0e18":"#0a0c16"}/>
+          <rect x={x+Math.floor((w-Math.ceil(w/2))/2)} y={h} width={Math.ceil(w/2)} height={5} fill="#080a12"/>
+          <rect x={x+Math.floor((w-Math.ceil(w/4))/2)} y={h+5} width={Math.ceil(w/4)} height={3} fill="#06080e"/>
+        </g>
       ))}
 
-      {/* ── Aurora borealis ── */}
-      <rect x={0}   y={82} width={700} height={5}  fill="#204030" style={{animation:"c4-aur 3.5s ease-in-out 0s infinite"}}/>
-      <rect x={100} y={79} width={500} height={7}  fill="#284838" style={{animation:"c4-aur 4.2s ease-in-out 0.8s infinite"}}/>
-      <rect x={200} y={77} width={300} height={9}  fill="#305040" style={{animation:"c4-aur 3.8s ease-in-out 1.6s infinite"}}/>
-
-      {/* ── Snow-covered ground ── */}
-      <rect x={0} y={168} width={700} height={92} fill="#0a0e18"/>
-      <rect x={0} y={168} width={700} height={10} fill="#1a2030"/>
-      {Array.from({length:4},(_,i)=><rect key={i} x={0} y={178+i*10} width={700} height={10} fill={i%2===0?"#101620":"#0e1420"}/>)}
-      {[[0,162,90,10],[80,164,120,8],[240,166,200,6],[420,158,80,14],[580,160,120,12],[630,156,70,16]].map(([x,y,w,h],i)=>(
-        <rect key={i} x={x as number} y={y as number} width={w as number} height={h as number} fill="#1c2230"/>
+      {/* ── Faint cave crystal drips ── */}
+      {[[80,50],[215,54],[372,46],[524,52],[652,48]].map(([x,y],i)=>(
+        <rect key={i} x={x} y={y} width={2} height={2} fill="#284860" opacity="0.45"
+          style={{animation:`c4-tw ${2.2+i*0.4}s ease-in-out ${i*0.55}s infinite`}}/>
       ))}
 
-      {/* ── Bare frozen trees ── */}
-      <rect x={30} y={120} width={4} height={50} fill="#12141e"/>
-      {[[20,124,14,2],[22,130,10,2],[25,136,6,2]].map(([x,y,w,h],i)=><rect key={i} x={x} y={y} width={w} height={h} fill="#12141e"/>)}
-      <rect x={640} y={118} width={4} height={52} fill="#12141e"/>
-      {[[636,122,12,2],[638,128,10,2],[640,134,8,2]].map(([x,y,w,h],i)=><rect key={i} x={x} y={y} width={w} height={h} fill="#12141e"/>)}
+      {/* ── Stone cave side walls ── */}
+      <rect x={0}   y={0} width={46} height={260} fill="#0a0c16"/>
+      <rect x={0}   y={0} width={6}  height={260} fill="#0e1018"/>
+      <rect x={40}  y={0} width={6}  height={260} fill="#07090d"/>
+      {[28,68,110,152,194].map((y,i)=><rect key={i} x={0} y={y} width={46} height={3} fill="#06080c" opacity="0.6"/>)}
+      <rect x={654} y={0} width={46} height={260} fill="#0a0c16"/>
+      <rect x={694} y={0} width={6}  height={260} fill="#0e1018"/>
+      <rect x={654} y={0} width={6}  height={260} fill="#07090d"/>
+      {[28,68,110,152,194].map((y,i)=><rect key={i} x={654} y={y} width={46} height={3} fill="#06080c" opacity="0.6"/>)}
 
-      {/* ── Drifting snowflakes ── */}
-      {[{x:80,del:"0s",dur:"6s"},{x:200,del:"2.5s",dur:"7s"},{x:340,del:"1s",dur:"5.5s"},{x:480,del:"4s",dur:"8s"},{x:600,del:"3s",dur:"6.5s"},{x:140,del:"5s",dur:"7.5s"}].map((s,i)=>(
-        <rect key={i} x={s.x} y={-8} width={2} height={2} fill="#d8e4f0" opacity="0.7"
-          style={{animation:`c4-snow ${s.dur} linear ${s.del} infinite`}}/>
+      {/* ── Cavern rock formations (mid-ground) ── */}
+      {[[70,114,76,48],[216,122,58,40],[452,110,68,52],[582,120,76,42]].map(([x,y,w,h],i)=>(
+        <rect key={i} x={x as number} y={y as number} width={w as number} height={h as number} fill={i%2===0?"#0e1018":"#0c0e16"}/>
+      ))}
+
+      {/* ── River Styx — dark glowing underground pool ── */}
+      <rect x={0} y={148} width={700} height={112} fill="#060c16"/>
+      <rect x={0} y={148} width={700} height={8}   fill="#0c1e30">
+        <animate attributeName="opacity" values="0.8;1.0;0.8" dur="3s" repeatCount="indefinite"/>
+      </rect>
+      {Array.from({length:7},(_,n)=>(
+        <rect key={n} x={n*104} y={150} width={58} height={2} fill="#102030" opacity="0.9">
+          <animate attributeName="opacity" values="0.9;0.3;0.9" dur={`${2.2+n*0.35}s`} begin={`${n*0.22}s`} repeatCount="indefinite"/>
+        </rect>
+      ))}
+      {/* Otherworldly teal-blue glow rising from the Styx */}
+      <rect x={0}   y={110} width={700} height={60} fill="#081e30" style={{animation:"c4-glow 3.5s ease-in-out 0s infinite"}}/>
+      <rect x={80}  y={118} width={540} height={44} fill="#082828" style={{animation:"c4-glow 4.2s ease-in-out 0.9s infinite"}}/>
+
+      {/* ── Stone riverbanks ── */}
+      <rect x={0} y={168} width={700} height={92} fill="#07090e"/>
+      {Array.from({length:4},(_,i)=><rect key={i} x={0} y={168+i*14} width={700} height={12} fill={i%2===0?"#0c0e14":"#090b12"}/>)}
+      {[[28,170,50,8],[170,168,44,10],[318,172,54,8],[476,170,42,10],[596,168,52,10]].map(([x,y,w,h],i)=>(
+        <rect key={i} x={x as number} y={y as number} width={w as number} height={h as number} fill="#10121a"/>
+      ))}
+
+      {/* ── Mist rising from the Styx ── */}
+      {[{y:144,h:5,del:"0s",dur:"15s"},{y:140,h:4,del:"6s",dur:"19s"},{y:146,h:6,del:"11s",dur:"17s"}].map((m,i)=>(
+        <rect key={i} x={-220} y={m.y} width={260} height={m.h} fill="#0e1c2c" opacity="0.5"
+          style={{animation:`c4-mist ${m.dur} linear ${m.del} infinite`}}/>
       ))}
 
       {/* ── Nymph golden glow (right side) ── */}
-      <rect x={430} y={50} width={200} height={120} fill="#c9a84c" opacity="0.020">
+      <rect x={430} y={50} width={200} height={120} fill="#2a8870" opacity="0.020">
         <animate attributeName="opacity" values="0.020;0.045;0.020" dur="3s" repeatCount="indefinite"/>
       </rect>
 
@@ -549,7 +601,7 @@ function ChapterIV({ className, style }: IllustrationProps) {
       </g>
 
       <rect width="700" height="260" fill="url(#c4-vig)"/>
-      <rect x="1" y="1" width="698" height="258" fill="none" stroke="#c9a84c" strokeWidth="0.8" strokeOpacity="0.3"/>
+      <rect x="1" y="1" width="698" height="258" fill="none" stroke="#3a7868" strokeWidth="0.8" strokeOpacity="0.45"/>
     </svg>
   );
 }
@@ -573,10 +625,10 @@ function ChapterV({ className, style }: IllustrationProps) {
       <defs>
         <radialGradient id="c5-vig" cx="50%" cy="50%" r="65%">
           <stop offset="0%" stopColor="transparent"/>
-          <stop offset="100%" stopColor="#020106" stopOpacity="0.92"/>
+          <stop offset="100%" stopColor="#020601" stopOpacity="0.93"/>
         </radialGradient>
         <radialGradient id="c5-glow" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor="#5a2080" stopOpacity="0.12"/>
+          <stop offset="0%" stopColor="#1e4808" stopOpacity="0.22"/>
           <stop offset="100%" stopColor="transparent"/>
         </radialGradient>
       </defs>
@@ -631,10 +683,10 @@ function ChapterV({ className, style }: IllustrationProps) {
           style={{animation:`c5-drip ${d.dur} linear ${d.del} infinite`}}/>
       ))}
 
-      {/* ── Eerie purple glow from Medusa's direction ── */}
-      <rect x={0}   y={60}  width={200} height={110} fill="#5a2080" opacity="0.018"
+      {/* ── Eerie olive-green glow from Medusa's direction ── */}
+      <rect x={0}   y={60}  width={200} height={110} fill="#1e4808" opacity="0.025"
         style={{animation:"c5-gfx 4s ease-in-out 0s infinite"}}/>
-      <rect x={0}   y={80}  width={150} height={90}  fill="#5a2080" opacity="0.025"
+      <rect x={0}   y={80}  width={150} height={90}  fill="#284808" opacity="0.032"
         style={{animation:"c5-gfx 3.2s ease-in-out 1s infinite"}}/>
 
       <ellipse cx="350" cy="165" rx="220" ry="90" fill="url(#c5-glow)"/>
@@ -714,7 +766,7 @@ function ChapterV({ className, style }: IllustrationProps) {
       </g>
 
       <rect width="700" height="260" fill="url(#c5-vig)"/>
-      <rect x="1" y="1" width="698" height="258" fill="none" stroke="#c9a84c" strokeWidth="0.8" strokeOpacity="0.3"/>
+      <rect x="1" y="1" width="698" height="258" fill="none" stroke="#305018" strokeWidth="0.8" strokeOpacity="0.45"/>
     </svg>
   );
 }
@@ -766,7 +818,7 @@ function ChapterVI({ className, style }: IllustrationProps) {
       <defs>
         <radialGradient id="c6-vig" cx="50%" cy="50%" r="65%">
           <stop offset="0%" stopColor="transparent"/>
-          <stop offset="100%" stopColor="#020308" stopOpacity="0.92"/>
+          <stop offset="100%" stopColor="#020810" stopOpacity="0.92"/>
         </radialGradient>
         <radialGradient id="c6-moon" cx="50%" cy="50%" r="50%">
           <stop offset="0%" stopColor="#d0c870" stopOpacity="0.45"/>
@@ -786,33 +838,33 @@ function ChapterVI({ className, style }: IllustrationProps) {
         `}</style>
       </defs>
 
-      <rect width="700" height="200" fill="#050810"/>
-      <rect x="0" y="0"   width="700" height="50"  fill="#040608"/>
-      <rect x="0" y="50"  width="700" height="60"  fill="#060910"/>
-      <rect x="0" y="110" width="700" height="60"  fill="#070a12"/>
-      <rect x="0" y="170" width="700" height="30"  fill="#090c14"/>
+      <rect width="700" height="200" fill="#050c1e"/>
+      <rect x="0" y="0"   width="700" height="50"  fill="#040c20"/>
+      <rect x="0" y="50"  width="700" height="60"  fill="#061428"/>
+      <rect x="0" y="110" width="700" height="60"  fill="#081c34"/>
+      <rect x="0" y="170" width="700" height="30"  fill="#0a2040"/>
 
       {stars.map((s, i) => (
         <rect key={i} x={s.x} y={s.y}
           width={s.dim ? 1 : 2} height={s.dim ? 1 : 2}
-          fill={s.gold ? "#c9a84c" : s.dim ? "#808090" : "#e4dfc2"}
+          fill={s.gold ? "#a8c0e8" : s.dim ? "#506080" : "#c8d4f0"}
           style={{ animation:`c6-twinkle ${s.dur} ease-in-out ${s.del} infinite`, opacity:s.op }}
         />
       ))}
 
       <ellipse cx="610" cy="48" rx="58" ry="58" fill="url(#c6-moon)"
         style={{ animation:"c6-moonGlow 4s ease-in-out infinite" }}/>
-      <rect x="580" y="18" width="60" height="60" fill="#040608"/>
+      <rect x="580" y="18" width="60" height="60" fill="#040c20"/>
       <rect x="586" y="24" width="48" height="48" fill="#cfc478" opacity="0.16"/>
       <rect x="590" y="28" width="40" height="40" fill="#d0c87a" opacity="0.24"/>
       <rect x="594" y="32" width="32" height="32" fill="#cfc472" opacity="0.36"/>
       <rect x="598" y="36" width="24" height="24" fill="#c8be68" opacity="0.50"/>
-      <rect x="604" y="28" width="24" height="40" fill="#040608"/>
-      <rect x="606" y="26" width="22" height="44" fill="#040608"/>
+      <rect x="604" y="28" width="24" height="40" fill="#040c20"/>
+      <rect x="606" y="26" width="22" height="44" fill="#040c20"/>
 
       {windLines.map((w, i) => (
         <rect key={i} x={0} y={w.y} width={w.w} height={1}
-          fill="#b8c8d8"
+          fill="#5090c8"
           style={{ opacity:0, animation:`c6-wind ${w.dur} linear ${w.del} infinite` }}
         />
       ))}
@@ -826,10 +878,6 @@ function ChapterVI({ className, style }: IllustrationProps) {
           keySplines="0.42,0,0.58,1; 0.42,0,0.58,1; 0.42,0,0.58,1; 0.42,0,0.58,1; 0.42,0,0.58,1; 0.42,0,0.58,1"
           dur="9s" repeatCount="indefinite"
         />
-        <rect x={-200} y={18} width={200} height={44} fill="#c9a84c" opacity="0.05"/>
-        <rect x={-130} y={26} width={130} height={32} fill="#c9a84c" opacity="0.09"/>
-        <rect x={-70}  y={30} width={70}  height={20} fill="#dbd060" opacity="0.15"/>
-        <rect x={-30}  y={32} width={30}  height={14} fill="#dbd060" opacity="0.22"/>
         <g transform="translate(-84,0)" opacity={0.08}>
           <FrameAnim base="/Perseus/perseus_flight_" w={96} h={128} fps={8}/>
         </g>
@@ -839,8 +887,8 @@ function ChapterVI({ className, style }: IllustrationProps) {
         <FrameAnim base="/Perseus/perseus_flight_" w={96} h={128} fps={8}/>
       </g>
 
-      <rect x="0" y="198" width="700" height="62" fill="#060c18"/>
-      <rect x="0" y="198" width="700" height="8"  fill="#08101e"/>
+      <rect x="0" y="198" width="700" height="62" fill="#050e20"/>
+      <rect x="0" y="198" width="700" height="8"  fill="#071228"/>
 
       <g style={{ animation:"c6-wave 4s linear infinite" }}>
         {[0,1,2,3,4,5,6,7,8].map(n => (
@@ -853,13 +901,8 @@ function ChapterVI({ className, style }: IllustrationProps) {
         ))}
       </g>
 
-      <rect x="530" y="200" width="80" height="58" fill="#c0b860"
-        style={{ animation:"c6-shimmer 3.5s ease-in-out infinite" }}/>
-      <rect x="550" y="205" width="40" height="53" fill="#c0b860"
-        style={{ animation:"c6-shimmer 3.5s ease-in-out 1.2s infinite" }}/>
-
       <rect width="700" height="260" fill="url(#c6-vig)"/>
-      <rect x="1" y="1" width="698" height="258" fill="none" stroke="#c9a84c" strokeWidth="0.8" strokeOpacity="0.3"/>
+      <rect x="1" y="1" width="698" height="258" fill="none" stroke="#184898" strokeWidth="0.8" strokeOpacity="0.45"/>
     </svg>
   );
 }
@@ -924,7 +967,7 @@ function ChapterVII({ className, style }: IllustrationProps) {
       <defs>
         <radialGradient id="c7-vig" cx="50%" cy="50%" r="65%">
           <stop offset="0%" stopColor="transparent"/>
-          <stop offset="100%" stopColor="#020308" stopOpacity="0.92"/>
+          <stop offset="100%" stopColor="#010818" stopOpacity="0.93"/>
         </radialGradient>
       </defs>
 
@@ -1121,7 +1164,7 @@ function ChapterVII({ className, style }: IllustrationProps) {
       </g>
 
       <rect width="700" height="260" fill="url(#c7-vig)"/>
-      <rect x="1" y="1" width="698" height="258" fill="none" stroke="#c9a84c" strokeWidth="0.8" strokeOpacity="0.3"/>
+      <rect x="1" y="1" width="698" height="258" fill="none" stroke="#4878a8" strokeWidth="0.8" strokeOpacity="0.45"/>
     </svg>
   );
 }
@@ -1136,10 +1179,10 @@ function ChapterVIII({ className, style }: IllustrationProps) {
       <defs>
         <radialGradient id="c8-vig" cx="50%" cy="50%" r="65%">
           <stop offset="0%" stopColor="transparent"/>
-          <stop offset="100%" stopColor="#020208" stopOpacity="0.92"/>
+          <stop offset="100%" stopColor="#080808" stopOpacity="0.93"/>
         </radialGradient>
         <radialGradient id="c8-bag" cx="30%" cy="40%" r="50%">
-          <stop offset="0%" stopColor="#c9a84c" stopOpacity="0.35"/>
+          <stop offset="0%" stopColor="#880808" stopOpacity="0.30"/>
           <stop offset="100%" stopColor="transparent"/>
         </radialGradient>
       </defs>
@@ -1194,12 +1237,12 @@ function ChapterVIII({ className, style }: IllustrationProps) {
       </g>
       <rect x={628} y={32} width={72} height={140} fill="#a03010" style={{animation:"c8-glow 0.72s ease-in-out 0.28s infinite"}}/>
 
-      {/* ── Kibisis golden glow (left side, pulsing) ── */}
-      <rect x={60} y={60} width={160} height={160} fill="#c9a84c" opacity="0.020">
-        <animate attributeName="opacity" values="0.020;0.048;0.020" dur="2.6s" repeatCount="indefinite"/>
+      {/* ── Medusa glow (left side, pulsing — garnet red) ── */}
+      <rect x={60} y={60} width={160} height={160} fill="#880808" opacity="0.022">
+        <animate attributeName="opacity" values="0.022;0.050;0.022" dur="2.6s" repeatCount="indefinite"/>
       </rect>
-      <rect x={80} y={80} width={120} height={140} fill="#c9a84c" opacity="0.025">
-        <animate attributeName="opacity" values="0.025;0.055;0.025" dur="3.0s" begin="0.5s" repeatCount="indefinite"/>
+      <rect x={80} y={80} width={120} height={140} fill="#880808" opacity="0.028">
+        <animate attributeName="opacity" values="0.028;0.058;0.028" dur="3.0s" begin="0.5s" repeatCount="indefinite"/>
       </rect>
 
       <ellipse cx="164" cy="120" rx="130" ry="110" fill="url(#c8-bag)"/>
@@ -1254,41 +1297,164 @@ function ChapterVIII({ className, style }: IllustrationProps) {
       </g>
 
       <rect width="700" height="260" fill="url(#c8-vig)"/>
-      <rect x="1" y="1" width="698" height="258" fill="none" stroke="#c9a84c" strokeWidth="0.8" strokeOpacity="0.3"/>
+      <rect x="1" y="1" width="698" height="258" fill="none" stroke="#787068" strokeWidth="0.8" strokeOpacity="0.45"/>
     </svg>
   );
 }
 
 // ─── Chapter IX: Endings ──────────────────────────────────────────────────
 function ChapterIX({ className, style }: IllustrationProps) {
-  // All 7 Acrisius frames, 80×48 native → 5× = 400×240, centered in 700×260
-  const frames = [
-    "acrisius_death_00_ready",
-    "acrisius_death_01_windup",
-    "acrisius_death_02_release",
-    "acrisius_death_03_flight",
-    "acrisius_death_04_strike",
-    "acrisius_death_05_falling",
-    "acrisius_death_06_dead",
+  const D = "7s";
+  // 10 segments — flying segs compressed to ~0.28s each for a snappy throw
+  // seg 0  (0→0.13):  ready        — discus still in hand, Acrisius alive
+  // seg 1  (0.13→0.20): windup     — discus still in hand, Acrisius alive
+  // seg 2  (0.20→0.24): release    — discus pos A (just left hand), shocked
+  // seg 3  (0.24→0.28): followthr  — discus pos B (1/4 arc), shocked
+  // seg 4  (0.28→0.32): followthr  — discus pos C (mid arc, peak), shocked
+  // seg 5  (0.32→0.36): followthr  — discus pos D (3/4 arc), shocked
+  // seg 6  (0.36→0.40): followthr  — discus pos E (near Acrisius), struck
+  // seg 7  (0.40→0.50): —          — Acrisius falling
+  // seg 8  (0.50→0.60): —          — Acrisius falling
+  // seg 9  (0.60→1.0):  —          — Acrisius dead (hold ~2.8s)
+  const kT = "0; 0.13; 0.20; 0.24; 0.28; 0.32; 0.36; 0.40; 0.50; 0.60; 1.0";
+  // Discus arc: starts tight to Perseus's hand, arcs across to Acrisius
+  const discusArc = [
+    { x: 130, y: 100 }, // A — just left hand
+    { x: 225, y: 78  }, // B — rising
+    { x: 330, y: 60  }, // C — peak
+    { x: 435, y: 75  }, // D — descending
+    { x: 525, y: 95  }, // E — arriving at Acrisius
   ];
-  const n = frames.length;
-  const dur = `${(n / 2).toFixed(1)}s`; // 2 fps → 3.5s cycle
-  const kT = Array.from({length: n + 1}, (_, j) => (j / n).toFixed(4)).join(";");
+  // values for each flying position (visible in segs 2–6 respectively)
+  const flyingVals = [
+    "0;0;1;0;0;0;0;0;0;0;0", // A
+    "0;0;0;1;0;0;0;0;0;0;0", // B
+    "0;0;0;0;1;0;0;0;0;0;0", // C
+    "0;0;0;0;0;1;0;0;0;0;0", // D
+    "0;0;0;0;0;0;1;0;0;0;0", // E
+  ];
   return (
     <svg viewBox="0 0 700 260" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" className={className} style={style} aria-hidden="true">
-      <rect width="700" height="260" fill="#0a0810"/>
-      {frames.map((name, i) => {
-        const vals = Array.from({length: n}, (_, j) => j === i ? "1" : "0").concat(i === 0 ? "1" : "0").join(";");
-        return (
-          <image key={name} href={`/Acrisius/${name}.png`}
-            x={0} y={0} width={700} height={260} opacity={i === 0 ? 1 : 0}
-            preserveAspectRatio="none"
-            style={{ imageRendering: "pixelated" }}>
-            <animate attributeName="opacity" values={vals} keyTimes={kT} calcMode="discrete" dur={dur} repeatCount="indefinite"/>
-          </image>
-        );
-      })}
-      <rect x="1" y="1" width="698" height="258" fill="none" stroke="#c9a84c" strokeWidth="0.8" strokeOpacity="0.3"/>
+      <defs>
+        <radialGradient id="c9-vig" cx="50%" cy="50%" r="65%">
+          <stop offset="0%" stopColor="transparent"/>
+          <stop offset="100%" stopColor="#0e0404" stopOpacity="0.92"/>
+        </radialGradient>
+      </defs>
+
+      {/* ── Arena background ── */}
+      <rect width="700" height="260" fill="#120808"/>
+      <rect x={0} y={0} width={700} height={140} fill="#1a0808"/>
+      <rect x={0} y={0} width={700} height={55} fill="#220c0c"/>
+      <rect x={0} y={80} width={700} height={80} fill="#1c1010"/>
+      {[0,80,160,240,320,400,480,560,640].map(x => (
+        <rect key={x} x={x} y={80} width={2} height={80} fill="#0e0606" opacity="0.5"/>
+      ))}
+      <rect x={0} y={157} width={700} height={5} fill="#100808" opacity="0.6"/>
+      <rect x={0} y={195} width={700} height={65} fill="#201010"/>
+      {Array.from({length:4},(_,i) => (
+        <rect key={i} x={0} y={195+i*16} width={700} height={14} fill={i%2===0?"#221212":"#1c1010"}/>
+      ))}
+      {[0,100,200,300,400,500,600].map(x => (
+        <rect key={x} x={x} y={195} width={2} height={65} fill="#120808" opacity="0.4"/>
+      ))}
+
+      {/* ── Blood glow blooms on strike, fades as Acrisius dies ── */}
+      <rect x={380} y={0} width={320} height={260} fill="#901010" opacity="0">
+        <animate attributeName="opacity"
+          values="0;0;0;0;0;0;0.04;0.03;0.018;0;0"
+          keyTimes={kT} calcMode="discrete" dur={D} repeatCount="indefinite"/>
+      </rect>
+
+      {/* ── Perseus — left side ── */}
+      <g transform="translate(50,67)">
+        <image href="/Perseus/perseus_discus_ready.png"
+          x={0} y={0} width={96} height={128} opacity="1"
+          style={{imageRendering:"pixelated"}}>
+          <animate attributeName="opacity" values="1;0;0;0;0;0;0;0;0;0;1"
+            keyTimes={kT} calcMode="discrete" dur={D} repeatCount="indefinite"/>
+        </image>
+        <image href="/Perseus/perseus_discus_windup.png"
+          x={0} y={0} width={96} height={128} opacity="0"
+          style={{imageRendering:"pixelated"}}>
+          <animate attributeName="opacity" values="0;1;0;0;0;0;0;0;0;0;0"
+            keyTimes={kT} calcMode="discrete" dur={D} repeatCount="indefinite"/>
+        </image>
+        <image href="/Perseus/perseus_discus_release.png"
+          x={0} y={0} width={96} height={128} opacity="0"
+          style={{imageRendering:"pixelated"}}>
+          <animate attributeName="opacity" values="0;0;1;0;0;0;0;0;0;0;0"
+            keyTimes={kT} calcMode="discrete" dur={D} repeatCount="indefinite"/>
+        </image>
+        <image href="/Perseus/perseus_discus_followthrough.png"
+          x={0} y={0} width={96} height={128} opacity="0"
+          style={{imageRendering:"pixelated"}}>
+          <animate attributeName="opacity" values="0;0;0;1;1;1;1;1;1;1;0"
+            keyTimes={kT} calcMode="discrete" dur={D} repeatCount="indefinite"/>
+        </image>
+      </g>
+
+      {/* ── Discus — resting in hand (segs 0–1) ── */}
+      <image href="/Acrisius/discus_still.png"
+        x={105} y={105} width={28} height={28} opacity="1"
+        style={{imageRendering:"pixelated"}}>
+        <animate attributeName="opacity" values="1;1;0;0;0;0;0;0;0;0;1"
+          keyTimes={kT} calcMode="discrete" dur={D} repeatCount="indefinite"/>
+      </image>
+
+      {/* ── Discus — 5-position arc across the arena (segs 2–6) ── */}
+      {discusArc.map((pos, i) => (
+        <image key={i} href="/Acrisius/discus_flying.png"
+          x={pos.x} y={pos.y} width={28} height={28} opacity="0"
+          style={{imageRendering:"pixelated"}}>
+          <animate attributeName="opacity" values={flyingVals[i]}
+            keyTimes={kT} calcMode="discrete" dur={D} repeatCount="indefinite"/>
+        </image>
+      ))}
+
+      {/* ── Acrisius — right side, flipped to face Perseus ── */}
+      {/* preserveAspectRatio="xMidYMax meet" anchors all sprites to the same baseline */}
+      <g transform="translate(654,67) scale(-1,1)">
+        <image href="/Acrisius/acrisius_alive.png"
+          x={0} y={0} width={96} height={128} opacity="1"
+          preserveAspectRatio="xMidYMax meet"
+          style={{imageRendering:"pixelated"}}>
+          <animate attributeName="opacity" values="1;1;0;0;0;0;0;0;0;0;1"
+            keyTimes={kT} calcMode="discrete" dur={D} repeatCount="indefinite"/>
+        </image>
+        <image href="/Acrisius/acrisius_shocked.png"
+          x={0} y={0} width={96} height={128} opacity="0"
+          preserveAspectRatio="xMidYMax meet"
+          style={{imageRendering:"pixelated"}}>
+          <animate attributeName="opacity" values="0;0;1;1;1;1;0;0;0;0;0"
+            keyTimes={kT} calcMode="discrete" dur={D} repeatCount="indefinite"/>
+        </image>
+        <image href="/Acrisius/acrisius_struck.png"
+          x={0} y={0} width={96} height={128} opacity="0"
+          preserveAspectRatio="xMidYMax meet"
+          style={{imageRendering:"pixelated"}}>
+          <animate attributeName="opacity" values="0;0;0;0;0;0;1;0;0;0;0"
+            keyTimes={kT} calcMode="discrete" dur={D} repeatCount="indefinite"/>
+        </image>
+        <image href="/Acrisius/acrisius_falling.png"
+          x={0} y={0} width={96} height={128} opacity="0"
+          preserveAspectRatio="xMidYMax meet"
+          style={{imageRendering:"pixelated"}}>
+          <animate attributeName="opacity" values="0;0;0;0;0;0;0;1;1;0;0"
+            keyTimes={kT} calcMode="discrete" dur={D} repeatCount="indefinite"/>
+        </image>
+        <image href="/Acrisius/acrisius_dead.png"
+          x={0} y={0} width={96} height={128} opacity="0"
+          preserveAspectRatio="xMidYMax meet"
+          style={{imageRendering:"pixelated"}}>
+          <animate attributeName="opacity" values="0;0;0;0;0;0;0;0;0;1;0"
+            keyTimes={kT} calcMode="discrete" dur={D} repeatCount="indefinite"/>
+        </image>
+      </g>
+
+      {/* ── Vignette + border ── */}
+      <rect width="700" height="260" fill="url(#c9-vig)"/>
+      <rect x="1" y="1" width="698" height="258" fill="none" stroke="#901818" strokeWidth="0.8" strokeOpacity="0.45"/>
     </svg>
   );
 }

@@ -6,11 +6,95 @@
 }
 
 :root {
-  --bg-primary: #1a1f2e;
-  --bg-secondary: #151927;
+  --bg-primary: #12182a;
+  --bg-secondary: #0e1422;
+  --bg-glow: rgba(42, 136, 112, 0.07);
   --text-primary: #e8dcc8;
   --text-muted: #e8dcc8b3;
-  --accent: #c9a84c;
+  --accent: #2a8870;
+  --nav-bg: rgba(18, 24, 42, 0.90);
+  --nav-border: rgba(42, 136, 112, 0.10);
+}
+
+/* ── Per-chapter page theming ─────────────────────────────────────────────── */
+
+/* I — The Feast: torch-lit hall, crimson threat */
+body[data-chapter="I"] {
+  --bg-primary: #180e10;
+  --bg-glow: rgba(120, 24, 24, 0.12);
+  --nav-bg: rgba(26, 12, 14, 0.92);
+  --nav-border: rgba(122, 24, 24, 0.20);
+}
+
+/* II — The Gods: open night sky, Olympian silver-azure */
+body[data-chapter="II"] {
+  --bg-primary: #0c1424;
+  --bg-glow: rgba(128, 144, 200, 0.10);
+  --nav-bg: rgba(12, 20, 36, 0.92);
+  --nav-border: rgba(128, 144, 200, 0.18);
+}
+
+/* III — Grey Sisters: cold fog, slate obsidian */
+body[data-chapter="III"] {
+  --bg-primary: #0a0c12;
+  --bg-glow: rgba(96, 104, 120, 0.08);
+  --nav-bg: rgba(10, 12, 18, 0.92);
+  --nav-border: rgba(96, 104, 120, 0.18);
+}
+
+/* IV — Nymphs' Gifts: deep arctic, teal aurora */
+body[data-chapter="IV"] {
+  --bg-primary: #080c12;
+  --bg-glow: rgba(58, 120, 104, 0.10);
+  --nav-bg: rgba(8, 12, 18, 0.92);
+  --nav-border: rgba(58, 120, 104, 0.20);
+}
+
+/* V — Gorgon's Lair: near-void black, olive-poison glow */
+body[data-chapter="V"] {
+  --bg-primary: #060606;
+  --bg-glow: rgba(30, 72, 8, 0.14);
+  --nav-bg: rgba(6, 8, 6, 0.92);
+  --nav-border: rgba(48, 80, 24, 0.20);
+}
+
+/* VI — The Flight: open azure sky, freedom */
+body[data-chapter="VI"] {
+  --bg-primary: #040c1c;
+  --bg-glow: rgba(24, 72, 152, 0.12);
+  --nav-bg: rgba(4, 12, 28, 0.92);
+  --nav-border: rgba(24, 72, 152, 0.20);
+}
+
+/* VII — Andromeda: storm sea, dark ocean blue */
+body[data-chapter="VII"] {
+  --bg-primary: #060810;
+  --bg-glow: rgba(72, 120, 168, 0.10);
+  --nav-bg: rgba(6, 8, 16, 0.92);
+  --nav-border: rgba(72, 120, 168, 0.20);
+}
+
+/* VIII — Return to Seriphos: cold stone hall, garnet Medusa glow */
+body[data-chapter="VIII"] {
+  --bg-primary: #0c0a10;
+  --bg-glow: rgba(136, 8, 8, 0.12);
+  --nav-bg: rgba(12, 8, 14, 0.92);
+  --nav-border: rgba(120, 112, 104, 0.20);
+}
+
+/* IX — Endings: blood dark, inevitable doom */
+body[data-chapter="IX"] {
+  --bg-primary: #0e0606;
+  --bg-glow: rgba(144, 24, 24, 0.15);
+  --nav-bg: rgba(14, 6, 6, 0.92);
+  --nav-border: rgba(144, 24, 24, 0.22);
+}
+
+/* ── Nav bar — driven by CSS vars so it shifts with each chapter ─────────── */
+.nav-bar {
+  background-color: var(--nav-bg);
+  border-bottom: 1px solid var(--nav-border);
+  transition: background-color 1.4s ease, border-color 1.4s ease;
 }
 
 * {
@@ -23,7 +107,8 @@ html {
 
 body {
   background-color: var(--bg-primary);
-  background-image: radial-gradient(ellipse at 50% -5%, rgba(201, 168, 76, 0.07) 0%, transparent 60%);
+  background-image: radial-gradient(ellipse at 50% -5%, var(--bg-glow) 0%, transparent 60%);
+  transition: background-color 1.6s ease, background-image 1.6s ease;
   color: var(--text-primary);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
@@ -60,7 +145,7 @@ body {
 
 @keyframes pulseGlow {
   0%, 100% { opacity: 0.3; }
-  50%       { opacity: 0.7; filter: drop-shadow(0 0 5px rgba(201,168,76,0.5)); }
+  50%       { opacity: 0.7; filter: drop-shadow(0 0 5px rgba(42,136,112,0.5)); }
 }
 
 /* Choice button fill-from-left on hover */
@@ -72,7 +157,7 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(201,168,76,0.12) 0%, rgba(201,168,76,0.03) 100%);
+  background: linear-gradient(90deg, rgba(42,136,112,0.12) 0%, rgba(42,136,112,0.03) 100%);
   transform: translateX(-101%);
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -86,7 +171,7 @@ body {
     105deg,
     #e8dcc8 0%,
     #e8dcc8 30%,
-    #f5e08a 50%,
+    #6ad4bc 50%,
     #e8dcc8 70%,
     #e8dcc8 100%
   );
@@ -136,6 +221,6 @@ body {
 
 /* Selection color */
 ::selection {
-  background-color: #c9a84c40;
+  background-color: #2a887040;
   color: #e8dcc8;
 }

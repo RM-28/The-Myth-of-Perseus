@@ -51,8 +51,8 @@ export const storyNodes: Record<string, StoryNode> = {
     chapter: "II",
     chapterTitle: "The Gods Take Interest",
     text: `<p>You are alone on a hillside on Seriphos when they come to you.</p>
-<p>Hermes was the first to arrive. He is easy to recognize. He carried the harpe, a sword with a sickle edge, and sets it on the ground in front of you. Find the Graeae, he says. They know where the Gorgon lives.</p>
-<p>Then Athena speaks. She is standing there as well, though you did not see her arrive. She gives you her shield. The surface is polished metal, bright enough to show your face. She tells you to use it as a mirror.</p>
+<p>Hermes was the first to arrive. He carried the Caduceus, a winged staff with two snakes, and the harpe, a sword with a sickle edge, and sets the harpe on the ground in front of you. Find the Graeae, he says. They know where the Gorgon lives.</p>
+<p>Then Athena speaks. She is standing there as well, though you did not notice that she arrived. She gives you her shield. The surface is polished metal, bright enough to show your face.</p>
 <p>You are unsure as to why the gods have decided to help you.</p>
 <p>You believe it is because you are the son of Zeus.</p>`,
     choices: [
@@ -181,7 +181,7 @@ export const storyNodes: Record<string, StoryNode> = {
     text: `<p>The Graeae gave you directions without any hesitation.</p>
 <p>The nymphs receive you the same way. You explained what you wanted and they give you the three things you need: the kibisis to hold the head safely, the Cap of Hades that makes you invisible, and the winged sandals.</p>
 <p>Then Hermes appears again. He gives you the harpe, a curved blade which will be useful against the Gorgon.</p>
-<p>You strap on the sandals and rise off the ground. The nymphs watch you go. You did not demand these thing, but rather in kindness which is the same way they responded. You are not sure if that changes what is waiting at the end of the journey.</p>
+<p>You strap on the sandals and rise off the ground. The nymphs watch you go. You did not demand these things, but rather in kindness which is the same way they responded. You are not sure if that changes what is waiting at the end of the journey.</p>
 <p>You fly south, toward Libya.</p>`,
     choices: [
       {
@@ -239,7 +239,7 @@ export const storyNodes: Record<string, StoryNode> = {
     text: `<p>You leave Libya and go past the sea. Then, where the world runs out, the crags.</p>
 <p>The place is barren. You see the first stone figure from a distance: a man with his arm raised. Closer: a wolf, frozen mid-run. A woman looking over her shoulder. They line the whole approach, all of them facing inward, stopped in the last second before they understood what they were looking at.</p>
 <p>You put on the Cap of Hades.</p>
-<p>Inside, you see three Gorgons asleep. Their hair moves on its own. Bronze hands. Two of them are immortal. Medusa is in the center, thats the one you need to kill.</p>
+<p>Inside, you see three Gorgons asleep. Their hair moves on its own. Bronze hands. Two of them are immortal. Medusa is in the center, that's the one you need to kill.</p>
 <p>You raise the shield and find her face in the bronze. You walk backward, watching the reflection. The snakes in her hair curl and flex.</p>
 <p>You bring the harpe down hard.</p>
 <p>Blood hits the floor. From the open neck, Pegasus springs out. Chrysaor beside him, golden sword already in his grip. Poseidon's children, kept inside her until now. They rise without looking back.</p>`,
@@ -399,12 +399,12 @@ export const storyNodes: Record<string, StoryNode> = {
     choices: [
       {
         text: "You draw the harpe and go into the water. The monster is large and the sea is not your element. You fight it on a ledge above the waves and finish it with the sword.",
-        next: "return_seriphus_heroic",
+        next: "return_Seriphos_heroic",
         interpretiveNote: "Traditional — Perseus as rescuer"
       },
       {
         text: "You kill it with the harpe. But your hand went to the kibisis first. You notice that.",
-        next: "return_seriphus_power",
+        next: "return_Seriphos_power",
         interpretiveNote: "Power reading — growing comfort with the weapon"
       }
     ]
@@ -423,7 +423,7 @@ export const storyNodes: Record<string, StoryNode> = {
     choices: [
       {
         text: "You do not mention Atlas, or Phineus, or how many times you opened it. You take her hand and head for Seriphos.",
-        next: "return_seriphus_power",
+        next: "return_Seriphos_power",
         interpretiveNote: "The head's power shadows the relationship"
       }
     ]
@@ -442,7 +442,7 @@ export const storyNodes: Record<string, StoryNode> = {
     choices: [
       {
         text: "Andromeda is alive. Cetus is dead. Poseidon's oracle is satisfied. You have done exactly what the structure required. Seriphos is north.",
-        next: "return_seriphus_reflective",
+        next: "return_Seriphos_reflective",
         interpretiveNote: "Reflective/fate reading continues"
       }
     ]
@@ -462,19 +462,19 @@ export const storyNodes: Record<string, StoryNode> = {
     choices: [
       {
         text: "She says: I did not know that about Athena. You say: most people don't. You take her hand and head for Seriphos.",
-        next: "return_seriphus_sympathetic",
+        next: "return_Seriphos_sympathetic",
         interpretiveNote: "Full feminist reading — truth-telling as resistance"
       }
     ]
   },
 
   // ═══════════════════════════════════════════════
-  // CHAPTER VIII — Return to Seriphus
+  // CHAPTER VIII — Return to Seriphos
   // ═══════════════════════════════════════════════
-  "return_seriphus_heroic": {
-    id: "return_seriphus_heroic",
+  "return_Seriphos_heroic": {
+    id: "return_Seriphos_heroic",
     chapter: "VIII",
-    chapterTitle: "Return to Seriphus",
+    chapterTitle: "Return to Seriphos",
     text: `<p>In the air, you see Seriphos, small and familiar.</p>
 <p>Polydectes is in his hall. He is not surprised to see you. He is contemptuous. "You never killed the Gorgon, you are lying", he says. His wrath has moved past the feast, past Danaë. He simply will not believe you, and he says it in front of everyone.</p>
 <p>You tell the room to look away. Then you open the kibisis.</p>`,
@@ -485,17 +485,17 @@ export const storyNodes: Record<string, StoryNode> = {
         interpretiveNote: "Traditional heroic triumph"
       },
       {
-        text: "Polydectes turns to stone mid-sneer. His court with him. You stand in a room full of grey figures and look at what you did. The head goes to Athena. The sandals and cap and kibisis go back to the gods. You are mortal again. The room stays quiet.",
+        text: "Polydectes turns to stone mid-sneer. His court with him. You stand in a room full of grey figures and look at what you did. The room stays quiet, but you give the head to Athena. The sandals and cap and kibisis go back to the gods. You are mortal again.",
         next: "ending_ambiguous",
         interpretiveNote: "Heroic but self-aware ending"
       }
     ]
   },
 
-  "return_seriphus_power": {
-    id: "return_seriphus_power",
+  "return_Seriphos_power": {
+    id: "return_Seriphos_power",
     chapter: "VIII",
-    chapterTitle: "Return to Seriphus",
+    chapterTitle: "Return to Seriphos",
     text: `<p>You descend into the familiar air of Seriphos.</p>
 <p>You have used the head twice now, on Atlas and on Phineus at the wedding feast. You tell yourself it was the right choice.</p>
 <p>Polydectes moved on Danaë while you were gone. Danaë and Dictys are at an altar. You walk into the palace.</p>
@@ -511,10 +511,10 @@ export const storyNodes: Record<string, StoryNode> = {
     ]
   },
 
-  "return_seriphus_reflective": {
-    id: "return_seriphus_reflective",
+  "return_Seriphos_reflective": {
+    id: "return_Seriphos_reflective",
     chapter: "VIII",
-    chapterTitle: "Return to Seriphus",
+    chapterTitle: "Return to Seriphos",
     text: `<p>You descend into the familiar air of Seriphos.</p>
 <p>Polydectes moved against Danaë the moment you were gone. You knew he would. That was the shape of the trap from the beginning. The feast, the promise, the impossible quest, all of it was designed to get rid of you.</p>
 <p>You went to the edge of the world and back. You did everything the gods and the myth required of you.</p>
@@ -531,10 +531,10 @@ export const storyNodes: Record<string, StoryNode> = {
     ]
   },
 
-  "return_seriphus_sympathetic": {
-    id: "return_seriphus_sympathetic",
+  "return_Seriphos_sympathetic": {
+    id: "return_Seriphos_sympathetic",
     chapter: "VIII",
-    chapterTitle: "Return to Seriphus",
+    chapterTitle: "Return to Seriphos",
     text: `<p>You descend into the familiar air of Seriphos.</p>
 <p>Polydectes moved on Danaë while you were gone. Danaë and Dictys are at an altar. You walk into the palace.</p>
 <p>You open the kibisis and the king and his court turn to stone.</p>
@@ -577,7 +577,7 @@ export const storyNodes: Record<string, StoryNode> = {
     text: `<p>You leave Seriphos. You go to Thessaly, eventually, for the games at Larissa.</p>
 <p>Acrisius fled when he heard you were coming. The oracle was always there, behind every decision he made. He locked Danaë in bronze to stop it. It did not stop.</p>
 <p>At Larissa, you throw the discus. It goes into the crowd and it strikes an old man, that old man was Acrisius. The oracle is fulfilled.</p>
-<p>You carry the weight all the deeds you have done on Seriphos: one was Polydectes whom has tried to kill you and your grandfather, in which he recieved an oracle that he was going to die from his grandson.</p>
+<p>You carry the weight of all the deeds you have done on Seriphos: one was Polydectes who had tried to kill you and your grandfather, who had received an oracle that he was going to die from his grandson.</p>
 <p>One was intentional. One was not. The difference matters and also does not matter, depending on how you look at it.</p>
 <p>Since you killed a relative, you cannot live here anymore. You trade kingdoms with Megapenthes and take Tiryns. Your bloodline found Mycenae.</p>
 <p>The story ends correctly: villain petrified, mother freed, princess rescued, kingdom established. You did everything right, but due to fate, a discus struck an old man in a crowd and the prophecy that started all of this was finished.</p>`,

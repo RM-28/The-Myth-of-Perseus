@@ -3,11 +3,11 @@ import Link from "next/link";
 export default function AuthorsNote() {
   return (
     <>
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#1a1f2e]/90 backdrop-blur-sm border-b border-[#c9a84c]/10">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#1a1f2e]/90 backdrop-blur-sm border-b border-[#2a8870]/10">
         <div className="max-w-4xl mx-auto px-6 py-3 flex items-center justify-between">
           <Link
             href="/"
-            className="text-sm tracking-[0.2em] uppercase text-[#c9a84c]/70 hover:text-[#c9a84c] transition-colors font-sans"
+            className="text-sm tracking-[0.2em] uppercase text-[#2a8870]/70 hover:text-[#2a8870] transition-colors font-sans"
           >
             Perseus
           </Link>
@@ -30,17 +30,17 @@ export default function AuthorsNote() {
         />
         <div className="max-w-[650px] mx-auto relative z-10">
           <div className="mb-10 text-center">
-            <p className="text-sm tracking-[0.3em] uppercase text-[#c9a84c]/70 font-sans mb-1">
+            <p className="text-sm tracking-[0.3em] uppercase text-[#2a8870]/70 font-sans mb-1">
               Companion
             </p>
             <h1 className="text-3xl md:text-4xl font-serif text-[#e8dcc8] font-normal">
               Author&rsquo;s Note
             </h1>
-            <div className="mt-4 mx-auto w-16 h-px bg-[#c9a84c]/30" />
+            <div className="mt-4 mx-auto w-16 h-px bg-[#2a8870]/30" />
           </div>
 
           <div className="font-serif text-[17px] leading-[1.8] text-[#e8dcc8]/90 space-y-6">
-            <p className="text-[#c9a84c]/60 text-sm font-sans uppercase tracking-wider">
+            <p className="text-[#2a8870]/60 text-sm font-sans uppercase tracking-wider">
               [PLACEHOLDER — REPLACE WITH YOUR WRITING]
             </p>
 
