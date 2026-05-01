@@ -16,9 +16,12 @@ const lora = Lora({
 });
 
 export const metadata: Metadata = {
-  title: "Perseus",
+  title: "The Myth of Perseus",
   description:
     "An interactive retelling of the myth of Perseus and Medusa, exploring different ancient sources and interpretive traditions.",
+  icons: {
+    icon: "/favicon-256x256.png",
+  },
 };
 
 export default function RootLayout({
